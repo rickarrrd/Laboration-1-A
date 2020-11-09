@@ -6,19 +6,22 @@ public abstract class Car implements Movable{
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
+    protected double direction; //the angle of the car. direction=0 is along the y-axis and
+    //direction=90 is along the x-axis
+    protected double xcord;
+    protected double ycord;
     public String modelName; // The car model name
-	
-	// public Car() {}
-    
-    public void move() {
-    	
+
+    public void move(){
+        
     }
-	public void turnLeft() {
-		
-	}
-	public void turnRight() {
-		
-	}
+
+    public void turnLeft(){
+
+    }
+    public void turnRight(){
+
+    }
 	
     public int getNrDoors(){
         return nrDoors;
