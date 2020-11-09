@@ -14,8 +14,8 @@ public abstract class Car implements Movable{
     public String modelName; // The car model name
 
     public void move(){
-        xcord = xcord + Math.sin(direction)*currentSpeed;
-        ycord = ycord + Math.cos(direction)*currentSpeed;
+        xcord = xcord + Math.sin(Math.toRadians(direction))*currentSpeed;
+        ycord = ycord + Math.cos(Math.toRadians(direction))*currentSpeed;
     }
     public void turnLeft(){
         direction = direction-90;
@@ -24,7 +24,7 @@ public abstract class Car implements Movable{
         direction = direction+90;
     }
     public void getPosition(){
-        System.out.println(xcord + " y:" + ycord);
+        System.out.println("x:" +  xcord + " y:" + ycord);
     }
 	
     public int getNrDoors(){
