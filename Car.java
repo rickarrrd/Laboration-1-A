@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.lang.*;
+
 
 public abstract class Car implements Movable{
 	
@@ -13,7 +15,8 @@ public abstract class Car implements Movable{
     public String modelName; // The car model name
 
     public void move(){
-        
+        xcord = xcord + Math.sin(direction)*currentSpeed;
+        ycord = ycord + Math.cos(direction)*currentSpeed;
     }
 
     public void turnLeft(){
