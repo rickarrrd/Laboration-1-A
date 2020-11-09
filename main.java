@@ -3,5 +3,6 @@ public class main {
 
         Volvo240 volvo = new Volvo240();
         System.out.println(volvo.color);
+        
     }
 }

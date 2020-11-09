@@ -8,22 +8,23 @@ public abstract class Car implements Movable{
     protected double enginePower; // Engine power of the car
     protected double currentSpeed; // The current speed of the car
     protected Color color; // Color of the car
-    protected double direction; //the angle of the car. direction=0 is along the y-axis and
-    //direction=90 is along the x-axis
-    protected double xcord;
-    protected double ycord;
+    protected double direction=0; //the angle of the car. direction=0 is along the y-axis and
+    protected double xcord=0;
+    protected double ycord=0;
     public String modelName; // The car model name
 
     public void move(){
         xcord = xcord + Math.sin(direction)*currentSpeed;
         ycord = ycord + Math.cos(direction)*currentSpeed;
     }
-
     public void turnLeft(){
         direction = direction-90;
     }
     public void turnRight(){
         direction = direction+90;
+    }
+    public void getPosition(){
+        System.out.println(xcord + " y:" + ycord);
     }
 	
     public int getNrDoors(){
