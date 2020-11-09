@@ -1,4 +1,3 @@
-package Cars;
 import java.awt.Color;
 
 public abstract class Car implements Movable{
