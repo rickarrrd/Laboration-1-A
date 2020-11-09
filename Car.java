@@ -20,10 +20,10 @@ public abstract class Car implements Movable{
     }
 
     public void turnLeft(){
-
+        direction = direction-90;
     }
     public void turnRight(){
-
+        direction = direction+90;
     }
 	
     public int getNrDoors(){
