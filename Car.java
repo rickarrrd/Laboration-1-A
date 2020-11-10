@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.lang.*;
 
 /**
- * Abstract class Car includes
+ * Abstract class Car is a template for any car model
  */
 public abstract class Car implements Movable{
 	
@@ -99,9 +99,17 @@ public abstract class Car implements Movable{
     public void stopEngine(){
 	    currentSpeed = 0;
     }
-    
+
+    /**
+     * Increases currentSpeed by double fed as parameter.
+     * @param amount
+     */
     public abstract void incrementSpeed(double amount);
 
+    /**
+     * Decreases currentSpeed by double fed as parameter.
+     * @param amount
+     */
     public abstract void decrementSpeed(double amount);
     
     // TODO fix this method according to lab pm

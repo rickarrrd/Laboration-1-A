@@ -1,9 +1,15 @@
 import java.awt.*;
 
+/**
+ * non abstract class Saab95 extends Car with added specific parameters to the car model.
+ */
 public class Saab95 extends Car{
 
-    protected boolean turboOn;
+    protected boolean turboOn; // Determines turbo on if true, off otherwise.
 
+    /**
+     * Sets parameters for saab95.
+     */
     public Saab95(){
         nrDoors = 2;
         color = Color.red;
@@ -13,24 +19,42 @@ public class Saab95 extends Car{
         stopEngine();
     }
 
+    /**
+     * Sets turboOn to true.
+     */
     public void setTurboOn(){
 	    turboOn = true;
     }
 
+    /**
+     * Sets turboOn to false.
+     */
     public void setTurboOff(){
 	    turboOn = false;
     }
-    
+
+    /**
+     * speedFactor is one percent of enginePower multiplied by the turbo.
+     * @return speedFactor
+     */
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return enginePower * 0.01 * turbo;
     }
 
+    /**
+     * Increments the currentSpeed by adding fed parameter multiplied by speedFactor.
+     * @param amount
+     */
     public void incrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() + speedFactor() * amount;
     }
 
+    /**
+     * Decreases the currentSpeed by subtracting fed parameter multiplied by speedFactor.
+     * @param amount
+     */
     public void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;
     }
