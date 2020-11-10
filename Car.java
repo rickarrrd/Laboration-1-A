@@ -1,6 +1,6 @@
 import java.awt.Color;
 import java.lang.*;
-
+/piece of shit
 
 public abstract class Car implements Movable{
 	
