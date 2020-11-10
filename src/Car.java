@@ -115,13 +115,19 @@ public abstract class Car implements Movable{
 
     // TODO fix this method according to lab pm
     public void gas(double amount){
-        if(amount>=1 || amount<=0) {return;}
+        if(amount>=1 || amount<=0) {
+            System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
+            return;
+        }
         incrementSpeed(amount);
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
-        if(amount>=1 || amount<=0) {return;}
+        if(amount>=1 || amount<=0) {
+            System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
+            return;
+        }
         decrementSpeed(amount);
     }
 

@@ -48,7 +48,7 @@ public class Saab95 extends Car{
      * @param amount
      */
     public void incrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() + speedFactor() * amount;
+	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     /**
