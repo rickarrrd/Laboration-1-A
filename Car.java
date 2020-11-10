@@ -1,7 +1,9 @@
 import java.awt.Color;
 import java.lang.*;
-/piece of shit
 
+/**
+ * Abstract class Car includes
+ */
 public abstract class Car implements Movable{
 	
     protected int nrDoors; // Number of doors on the car
@@ -13,16 +15,28 @@ public abstract class Car implements Movable{
     protected double ycord=0;
     public String modelName; // The car model name
 
+    /**
+     * move moves the object by the distance currentSpeed in the direction of direction
+     */
     public void move(){
         xcord = xcord + Math.sin(Math.toRadians(direction))*currentSpeed;
         ycord = ycord + Math.cos(Math.toRadians(direction))*currentSpeed;
     }
+    /**
+     * Turns direction 90 degrees counter clockwise
+     */
     public void turnLeft(){
         direction = direction-90;
     }
+
+    /**
+     * Turns direction 90 degrees clockwise
+     */
     public void turnRight(){
         direction = direction+90;
     }
+
+
     public void getPosition(){
         System.out.println("x:" +  xcord + " y:" + ycord);
     }
