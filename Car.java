@@ -2,6 +2,7 @@ import javafx.util.Pair;
 
 import java.awt.Color;
 import java.lang.*;
+import java.text.BreakIterator;
 
 /**
  * Abstract class Car is a template for any car model
@@ -111,14 +112,16 @@ public abstract class Car implements Movable{
      * @param amount
      */
     public abstract void decrementSpeed(double amount);
-    
+
     // TODO fix this method according to lab pm
     public void gas(double amount){
+        if(amount>=1 || amount<=0) {return;}
         incrementSpeed(amount);
     }
 
     // TODO fix this method according to lab pm
     public void brake(double amount){
+        if(amount>=1 || amount<=0) {return;}
         decrementSpeed(amount);
     }
 
