@@ -43,33 +43,59 @@ public abstract class Car implements Movable{
      */
     public Pair getPosition(){
         Pair positions= new Pair(xcord,ycord);
-        //System.out.println("x:" +  positions.getKey() + " y:" + positions.getValue());
         return positions;
     }
-	
+
+    /**
+     * int representing number of doors
+     * @return nrDoors
+     */
     public int getNrDoors(){
         return nrDoors;
     }
+
+    /**
+     * double representing engine power in fake units
+     * @return enginePower
+     */
     public double getEnginePower(){
         return enginePower;
     }
 
+    /**
+     * current speed in fake units
+     * @return currentSpeed
+     */
     public double getCurrentSpeed(){
         return currentSpeed;
     }
 
+    /**
+     * color of object
+     * @return color
+     */
     public Color getColor(){
         return color;
     }
 
+    /**
+     * Set the color of object
+     * @param clr
+     */
     public void setColor(Color clr){
 	    color = clr;
     }
 
+    /**
+     * Set currentSpeed to default starting value
+     */
     public void startEngine(){
 	    currentSpeed = 0.1;
     }
 
+    /**
+     * Set currentSpeed to zero.
+     */
     public void stopEngine(){
 	    currentSpeed = 0;
     }

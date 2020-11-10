@@ -7,19 +7,23 @@ public class main {
                          + "Y position: " + volvo.getPosition().getValue());
         volvo.incrementSpeed(5);
         volvo.move();
-        volvo.getPosition();
+        System.out.println("X position: " + volvo.getPosition().getKey() + "  "
+                         + "Y position: " + volvo.getPosition().getValue());
         volvo.turnLeft();
         volvo.move();
-        volvo.getPosition();
+        System.out.println("X position: " + volvo.getPosition().getKey() + "  "
+                         + "Y position: " + volvo.getPosition().getValue());
 
 
         System.out.println("Saab:");
         Saab95 saab = new Saab95();
-        saab.getPosition();
+        System.out.println("X position: " + saab.getPosition().getKey() + "  "
+                         + "Y position: " + saab.getPosition().getValue());
         saab.incrementSpeed(2);
         saab.turnRight();
         saab.move();
-        saab.getPosition();
+        System.out.println("X position: " + saab.getPosition().getKey() + "  "
+                         + "Y position: " + saab.getPosition().getValue());
         
     }
 }
