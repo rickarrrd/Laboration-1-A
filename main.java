@@ -3,7 +3,8 @@ public class main {
 
         System.out.println("Volvo:");
         Volvo240 volvo = new Volvo240();
-        volvo.getPosition();
+        System.out.println("X position: " + volvo.getPosition().getKey() + "  "
+                         + "Y position: " + volvo.getPosition().getValue());
         volvo.incrementSpeed(5);
         volvo.move();
         volvo.getPosition();

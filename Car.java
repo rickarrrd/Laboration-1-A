@@ -1,3 +1,5 @@
+import javafx.util.Pair;
+
 import java.awt.Color;
 import java.lang.*;
 
@@ -36,9 +38,13 @@ public abstract class Car implements Movable{
         direction = direction+90;
     }
 
-
-    public void getPosition(){
-        System.out.println("x:" +  xcord + " y:" + ycord);
+    /**
+     * Returns Pair where getKey and getValue corresponds to x and y coordinates respectively
+     */
+    public Pair getPosition(){
+        Pair positions= new Pair(xcord,ycord);
+        //System.out.println("x:" +  positions.getKey() + " y:" + positions.getValue());
+        return positions;
     }
 	
     public int getNrDoors(){
