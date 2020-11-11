@@ -22,7 +22,7 @@ public class Volvo240 extends Car{
      * speedFactor is one percent of enginePower multiplied by the trimFactor.
      * @return speedFactor
      */
-    public double speedFactor(){
+    public double getSpeedFactor(){
         return enginePower * 0.01 * trimFactor;
     }
 
@@ -32,7 +32,7 @@ public class Volvo240 extends Car{
      * @param amount
      */
     public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+	    currentSpeed = Math.min(getCurrentSpeed() + getSpeedFactor() * amount,enginePower);
     }
 
     /**
@@ -41,7 +41,7 @@ public class Volvo240 extends Car{
      * @param amount
      */
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = getCurrentSpeed() - getSpeedFactor() * amount;
     }
 
 
