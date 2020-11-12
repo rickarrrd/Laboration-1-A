@@ -44,16 +44,16 @@ public class Saab95 extends Car{
     }
 
     /**
-     * Increments the currentSpeed by adding fed parameter multiplied by speedFactor.
-     * @param amount
+     * Increments the currentSpeed by adding amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
 	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
     }
 
     /**
-     * Decreases the currentSpeed by subtracting fed parameter multiplied by speedFactor.
-     * @param amount
+     * Decreases the currentSpeed by subtracting amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - speedFactor() * amount;

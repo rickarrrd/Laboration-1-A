@@ -8,14 +8,37 @@ import java.text.BreakIterator;
  * Abstract class Car is a template for any car model
  */
 public abstract class Car implements Movable{
-	
+    /**
+     * Number of doors on the car.
+     */
     protected int nrDoors; // Number of doors on the car
+    /**
+     * Engine power of the car.
+     */
     protected double enginePower; // Engine power of the car
+    /**
+     * The current speed of the car.
+     */
     protected double currentSpeed; // The current speed of the car
+    /**
+     * Color of the  car.
+     */
     protected Color color; // Color of the car
+    /**
+     * Direction of the car. Direction =0 points the car along positive y-axis.
+     */
     protected double direction=0; //the angle of the car. direction=0 is along the y-axis and
+    /**
+     * Specifies the x coordinate of the position of the car.
+     */
     protected double xcord=0;
+    /**
+     * Specifies the y coordinate of the position of the car.
+     */
     protected double ycord=0;
+    /**
+     * Specifies the model name of the car.
+     */
     public String modelName; // The car model name
 
     /**
@@ -41,6 +64,7 @@ public abstract class Car implements Movable{
 
     /**
      * Returns Pair where getKey and getValue corresponds to x and y coordinates respectively
+     * @return positions
      */
     public Pair getPosition(){
         Pair positions= new Pair(xcord,ycord);
@@ -80,8 +104,7 @@ public abstract class Car implements Movable{
     }
 
     /**
-     * Set the color of object
-     * @param clr
+     * @param clr color of object
      */
     public void setColor(Color clr){
 	    color = clr;
@@ -102,18 +125,21 @@ public abstract class Car implements Movable{
     }
 
     /**
-     * Increases currentSpeed by double fed as parameter.
-     * @param amount
+     * @param amount Specifies the amount of which to increment speed.
      */
     public abstract void incrementSpeed(double amount);
 
     /**
-     * Decreases currentSpeed by double fed as parameter.
-     * @param amount
+     * @param amount Specifies the amount of which to decrement speed.
      */
     public abstract void decrementSpeed(double amount);
 
     // TODO fix this method according to lab pm
+
+    /**
+     * Calls incrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
+     * @param amount Specifies amount of which to increment speed.
+     */
     public void gas(double amount){
         if(amount>=1.0 || amount<=0.0) {
             System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
@@ -123,6 +149,11 @@ public abstract class Car implements Movable{
     }
 
     // TODO fix this method according to lab pm
+
+    /**
+     * Calls decrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
+     * @param amount Specifies amount of which to decrement speed.
+     */
     public void brake(double amount){
         if(amount>=1.0 || amount<=0.0) {
             System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");

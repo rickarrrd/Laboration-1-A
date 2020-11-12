@@ -27,9 +27,9 @@ public class Volvo240 extends Car{
     }
 
     /**
-     * Increments currentSpeed by adding fed parameter multiplied by speedFactor,
+     * Increments currentSpeed by adding amount multiplied by speedFactor,
      * or sets currentSpeed to enginePower if enginePower is smaller whichever result is smaller
-     * @param amount
+     * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
 	    currentSpeed = Math.min(getCurrentSpeed() + getSpeedFactor() * amount,enginePower);
@@ -38,7 +38,7 @@ public class Volvo240 extends Car{
     /**
      * Decreases currentSpeed by speedFactor multiplied by amount, only if it is larger than zero.
      * If the result would be smaller than zero, currentSpeed is instead set to zero.
-     * @param amount
+     * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
         currentSpeed = getCurrentSpeed() - getSpeedFactor() * amount;
