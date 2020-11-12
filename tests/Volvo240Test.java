@@ -75,4 +75,27 @@ public class Volvo240Test {
         Volvo240 volvo240test = new Volvo240();
         assertEquals(4,volvo240test.getNrDoors());
     }
+
+    @Test
+    public void gas(){
+        Volvo240 volvo240test = new Volvo240();
+        volvo240test.gas(incrementTestAmount);
+        assertEquals(engineOffSpeed + volvo240test.getSpeedFactor()*incrementTestAmount,
+                volvo240test.getCurrentSpeed(),delta);
+
+        volvo240test.gas(1.5);
+        assertEquals(engineOffSpeed + volvo240test.getSpeedFactor()*incrementTestAmount,
+                volvo240test.getCurrentSpeed(),delta);
+    }
+
+    @Test
+    public void brake(){
+        Volvo240 volvo240test = new Volvo240();
+
+        volvo240test.brake(0.5);
+        assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);
+
+        volvo240test.brake(1.5);
+        assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);
+    }
 }
