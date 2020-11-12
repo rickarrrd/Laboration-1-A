@@ -3,7 +3,7 @@ import javafx.util.Pair;
 import java.awt.Color;
 import java.lang.*;
 import java.text.BreakIterator;
-//Testkommentar Rickard.
+//Testkommentar Rickard
 /**
  * Abstract class Car is a template for any car model
  */
