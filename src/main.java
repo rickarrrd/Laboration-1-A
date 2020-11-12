@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class main {
     /**
      * Main method is used to create objects and run commands.
@@ -7,6 +9,7 @@ public class main {
 
         System.out.println("Volvo:");
         Volvo240 volvo = new Volvo240();
+        System.out.println(volvo.getCurrentSpeed());
         System.out.println("X position: " + volvo.getPosition().getKey() + "  "
                          + "Y position: " + volvo.getPosition().getValue());
         volvo.incrementSpeed(5);
@@ -28,6 +31,6 @@ public class main {
         saab.move();
         System.out.println("X position: " + saab.getPosition().getKey() + "  "
                          + "Y position: " + saab.getPosition().getValue());
-        
+
     }
 }
