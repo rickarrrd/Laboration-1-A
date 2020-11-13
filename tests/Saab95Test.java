@@ -3,7 +3,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class Saab95Test {
-
+    double incrementTestHighAmount=500;
     double delta=0.01;
     double engineOffSpeed=0; //Newly created volvo currently starts with engine off speed, ie currentSpeed=0
     double startEngineSpeed=0.1;
@@ -52,9 +52,25 @@ public class Saab95Test {
 
     @Test
     public void incrementSpeed() {
+        Saab95Test newSaab = new Saab95();
+
+        newSaab.incrementSpeed(incrementTestAmount);
+        assertsEquals(engineOffSpeed+newSaab.speedFactor()*incrementTestAmount, newSaab.getCurrentSpeed(),delta);
+
+        newSaab.incrementSpeed(incrementTestHighAmount);
+        assertsEquals(enginePower, newSaab.getCurrentSpeed(), delta);
+
     }
 
     @Test
     public void decrementSpeed() {
+
+
+        Saab95Test newSaab = new Saab95();
+
+        newSaab.decrementSpeed(incrementTestAmount);
+        assertsEquals(engineOffSpeed+newSaab.speedFactor()*incrementTestAmount, newSaab.getCurrentSpeed(),delta);
+
+
     }
 }
