@@ -63,7 +63,7 @@ public class Saab95 extends Car{
      * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - speedFactor() * amount;
+        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
     
 }

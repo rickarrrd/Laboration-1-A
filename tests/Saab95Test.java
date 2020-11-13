@@ -68,9 +68,37 @@ public class Saab95Test {
 
         Saab95Test newSaab = new Saab95();
 
+        newSaab.incrementSpeed(2*incrementTestAmount);
         newSaab.decrementSpeed(incrementTestAmount);
         assertsEquals(engineOffSpeed+newSaab.speedFactor()*incrementTestAmount, newSaab.getCurrentSpeed(),delta);
 
-
+        newSaab.decrementSpeed(incrementTestHighAmount);
+        assertsEquals(0, newSaab.getCurrentSpeed(),delta);
     }
+
+
+    @Test
+    public void move() {
+
+
+        Saab95Test newSaab = new Saab95();
+
+        newSaab.move();
+        assertEquals(0.0,newSaab.getPosition().getKey(),delta);
+        assertEquals(0.0,newSaab.getPosition().getValue(),delta);
+
+        newSaab.incrementSpeed(1.0);
+        newSaab.move();
+        assertEquals(0.0,newSaab.getPosition().getKey());
+        assertEquals(1.25,newSaab.getPosition().getValue());
+
+        newSaab.turnRight();
+        newSaab.move();
+        assertEquals(1.25,newSaab.getPosition().getKey());
+        assertEquals(1.25,newSaab.getPosition().getValue());
+
+        newSaab.turnLeft();
+        newSaab.move();
+        assertEquals(1.25,newSaab.getPosition().getKey());
+        assertEquals(2.5,newSaab.getPosition().getValue());
 }
