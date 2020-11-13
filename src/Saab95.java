@@ -11,11 +11,13 @@ public class Saab95 extends Car{
      * Sets parameters for saab95.
      */
     public Saab95(){
-        nrDoors = 2;
-        color = Color.red;
-        enginePower = 125;
+        super(
+            Color.red,
+            2,
+            125,
+            "Saab 95"
+        );
 	    turboOn = false;
-        modelName = "Saab95";
         stopEngine();
     }
 
@@ -47,7 +49,7 @@ public class Saab95 extends Car{
     public double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;
-        return enginePower * 0.01 * turbo;
+        return getEnginePower()* 0.01 * turbo;
     }
 
     /**
@@ -55,7 +57,8 @@ public class Saab95 extends Car{
      * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + speedFactor() * amount,enginePower);
+        double newSpeed= Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
+        setCurrentSpeed(newSpeed);
     }
 
     /**
@@ -63,7 +66,7 @@ public class Saab95 extends Car{
      * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        double newSpeed= Math.min(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(newSpeed);
     }
-    
 }
