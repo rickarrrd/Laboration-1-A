@@ -22,7 +22,8 @@ public class Saab95 extends Car{
     }
 
     /**
-     * Get turbo status.
+     * Getter for turbo status
+     * @return turboOn
      */
     public boolean getTurbo(){
         return turboOn;

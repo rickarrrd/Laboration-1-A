@@ -50,7 +50,6 @@ public abstract class Car implements Movable{
     public Car(Color color, double enginePower, int nrDoors, String ModelName){
         this.color=color;
         this.modelName=modelName;
-
         setDoors(nrDoors);
         setEnginePower(enginePower);
     }
@@ -133,7 +132,7 @@ public abstract class Car implements Movable{
 
     /**
      * set speed in fake units
-     * @return currentSpeed
+     * @param currentSpeed
      */
     public void setCurrentSpeed(double currentSpeed){
         this.currentSpeed=currentSpeed;
