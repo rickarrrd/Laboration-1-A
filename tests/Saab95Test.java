@@ -38,11 +38,15 @@ public class Saab95Test {
     @Test
     public void getCurrentSpeed() {
         Saab95Test newSaab = new Saab95();
+        assertEquals(engineOffSpeed, newSaab.getCurrentSpeed());
+
         newSaab.startEngine();
-        assertEquals(engineOnSpeed, newSaab.speedFactor();
-        asser
+        assertEquals(startEngineSpeed, newSaab.getCurrentSpeed());
 
+        newSaab.incrementSpeed(incrementTestAmount);
+        assertEquals(incrementTestAmount*enginePower*0.01+startEngineSpeed, newSaab.getCurrentSpeed());
 
+        
 
     }
 
