@@ -3,7 +3,6 @@ import javafx.util.Pair;
 import java.awt.Color;
 import java.lang.*;
 import java.text.BreakIterator;
-//Testkommentar Rickard.
 /**
  * Abstract class Car is a template for any car model
  */
@@ -52,14 +51,14 @@ public abstract class Car implements Movable{
      * Turns direction 90 degrees counter clockwise
      */
     public void turnLeft(){
-        direction = direction-90;
+        direction = (direction+270) % 360;
     }
 
     /**
      * Turns direction 90 degrees clockwise
      */
     public void turnRight(){
-        direction = direction+90;
+        direction = (direction+90) % 360;
     }
 
     /**
