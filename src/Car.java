@@ -27,7 +27,7 @@ public abstract class Car implements Movable{
     /**
      * Direction of the car. Direction =0 points the car along positive y-axis.
      */
-    protected double direction=0; //the angle of the car. direction=0 is along the y-axis and
+    protected int direction=0; //the angle of the car. direction=0 is along the y-axis and
     /**
      * Specifies the x coordinate of the position of the car.
      */
@@ -52,14 +52,14 @@ public abstract class Car implements Movable{
      * Turns direction 90 degrees counter clockwise
      */
     public void turnLeft(){
-        direction = direction-90;
+        direction = (direction+270)%360;
     }
 
     /**
      * Turns direction 90 degrees clockwise
      */
     public void turnRight(){
-        direction = direction+90;
+        direction = (direction+90)%360;
     }
 
     /**
