@@ -1,3 +1,4 @@
+import javafx.util.Pair;
 import org.junit.Test;
         
 
@@ -29,64 +30,84 @@ public class Saab95Test {
     @Test
     public void speedFactor() {
         Saab95 newSaab = new Saab95();
-        assertEquals(enginePower*0.01, newSaab.speedFactor());
+        assertEquals(enginePower*0.01, newSaab.speedFactor(),delta);
 
         newSaab.setTurboOn();
-        assertEquals(enginePower*0.01*1.3, newSaab.speedFactor());
+        assertEquals(enginePower*0.01*1.3, newSaab.speedFactor(),delta);
         
     }
     
     @Test
     public void getCurrentSpeed() {
         Saab95 newSaab = new Saab95();
-        assertEquals(engineOffSpeed, newSaab.getCurrentSpeed());
+        assertEquals(engineOffSpeed, newSaab.getCurrentSpeed(),delta);
 
         newSaab.startEngine();
-        assertEquals(startEngineSpeed, newSaab.getCurrentSpeed());
+        assertEquals(startEngineSpeed, newSaab.getCurrentSpeed(),delta);
 
         newSaab.incrementSpeed(incrementTestAmount);
-        assertEquals(incrementTestAmount*enginePower*0.01+startEngineSpeed, newSaab.getCurrentSpeed());
-
-        
+        assertEquals(incrementTestAmount*enginePower*0.01+startEngineSpeed, newSaab.getCurrentSpeed(),delta);
 
     }
 
     @Test
     public void incrementSpeed() {
-        Saab95Test newSaab = new Saab95();
+        Saab95 newSaab = new Saab95();
 
         newSaab.incrementSpeed(incrementTestAmount);
-        assertsEquals(engineOffSpeed+newSaab.speedFactor()*incrementTestAmount, newSaab.getCurrentSpeed(),delta);
+        assertEquals(engineOffSpeed+newSaab.speedFactor()*incrementTestAmount, newSaab.getCurrentSpeed(),delta);
 
         newSaab.incrementSpeed(incrementTestHighAmount);
-        assertsEquals(enginePower, newSaab.getCurrentSpeed(), delta);
+        assertEquals(enginePower, newSaab.getCurrentSpeed(), delta);
 
     }
 
     @Test
     public void decrementSpeed() {
 
+        Saab95 newSaab = new Saab95();
 
-        Saab95Test newSaab = new Saab95();
-
-        newSaab.incrementSpeed(2*incrementTestAmount);
+        newSaab.incrementSpeed(2 * incrementTestAmount);
         newSaab.decrementSpeed(incrementTestAmount);
-        assertsEquals(engineOffSpeed+newSaab.speedFactor()*incrementTestAmount, newSaab.getCurrentSpeed(),delta);
+        assertEquals(engineOffSpeed + newSaab.speedFactor() * incrementTestAmount, newSaab.getCurrentSpeed(), delta);
 
         newSaab.decrementSpeed(incrementTestHighAmount);
-        assertsEquals(0, newSaab.getCurrentSpeed(),delta);
+        assertEquals(0, newSaab.getCurrentSpeed(), delta);
     }
+
+    @Test
+    public void gas(){ //Assuming incrementSpeed() works as intendet (earlier test)
+        Saab95 newSaab = new Saab95();
+        newSaab.gas(incrementTestAmount);
+        double speedOfFirstIncrement=newSaab.getCurrentSpeed();
+        assertEquals(speedOfFirstIncrement, newSaab.getCurrentSpeed(),delta);
+        newSaab.gas(1.5);
+        assertEquals(speedOfFirstIncrement, newSaab.getCurrentSpeed(),delta);
+    }
+
+    @Test
+    public void brake(){
+        Saab95 newSaab = new Saab95();
+
+        newSaab.brake(0.5);
+        double speedOfFirstDecrement=newSaab.getCurrentSpeed();
+        assertEquals(speedOfFirstDecrement,newSaab.getCurrentSpeed(),delta);
+
+        newSaab.brake(1.5);
+        assertEquals(speedOfFirstDecrement,newSaab.getCurrentSpeed(),delta);
+    }
+
 
 
     @Test
     public void move() {
 
 
-        Saab95Test newSaab = new Saab95();
+        Saab95 newSaab = new Saab95();
 
         newSaab.move();
-        assertEquals(0.0,newSaab.getPosition().getKey(),delta);
-        assertEquals(0.0,newSaab.getPosition().getValue(),delta);
+        assertEquals(0.0,newSaab.getPosition().getKey());
+        assertEquals(0.0,newSaab.getPosition().getValue());
 
         newSaab.incrementSpeed(1.0);
         newSaab.move();
@@ -102,4 +123,6 @@ public class Saab95Test {
         newSaab.move();
         assertEquals(1.25,newSaab.getPosition().getKey());
         assertEquals(2.5,newSaab.getPosition().getValue());
+    }
+
 }
