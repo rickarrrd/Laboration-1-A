@@ -90,7 +90,7 @@ public class Volvo240Test {
 
     @Test
     public void brake(){
-        Volvo240 volvo240test = new Volvo240();
+        Saab95 volvo240test = new Volvo240();
 
         volvo240test.brake(0.5);
         assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);
