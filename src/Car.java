@@ -40,6 +40,13 @@ public abstract class Car implements Movable{
      */
     private String modelName; // The car model name
 
+    /**
+     *
+     * @param color Color of car.
+     * @param enginePower Specifies engine power.
+     * @param nrDoors Number of doors on car.
+     * @param ModelName Model name of the car.
+     */
     public Car(Color color, double enginePower, int nrDoors, String ModelName){
         this.color=color;
         this.modelName=modelName;
@@ -48,13 +55,21 @@ public abstract class Car implements Movable{
         setEnginePower(enginePower);
     }
 
-    private void setDoors(int doors){
-        this.nrDoors=doors;
+    /**
+     * Private setter for constructor with conditions for the set value
+     * @param nrdoors
+     */
+    private void setDoors(int nrdoors){
+        this.nrDoors=nrdoors;
         if(nrDoors<0){
             this.nrDoors=0;
         }
     }
 
+    /**
+     * Private setter for constructor with conditions for the set value
+     * @param enginePower
+     */
     private void setEnginePower(double enginePower){
         this.enginePower=enginePower;
         if(enginePower<0){
@@ -163,7 +178,6 @@ public abstract class Car implements Movable{
      */
     public abstract void decrementSpeed(double amount);
 
-    // TODO fix this method according to lab pm
 
     /**
      * Calls incrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
@@ -177,7 +191,6 @@ public abstract class Car implements Movable{
         incrementSpeed(amount);
     }
 
-    // TODO fix this method according to lab pm
 
     /**
      * Calls decrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
