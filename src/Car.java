@@ -45,6 +45,7 @@ public abstract class Car implements Movable{
         this.color=color;
         this.modelName=modelName;
 
+
         setDoors(nrDoors);
         setEnginePower(enginePower);
 
@@ -62,6 +63,10 @@ public abstract class Car implements Movable{
         if(enginePower<0){
             this.enginePower=0;
         }
+    }
+
+    public void setCurrentSpeed(double currentSpeed){
+        this.currentSpeed=currentSpeed;
     }
     /**
      * move moves the object by the distance currentSpeed in the direction of direction

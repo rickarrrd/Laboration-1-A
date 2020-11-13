@@ -25,7 +25,7 @@ public class Volvo240 extends Car{
      * @return speedFactor
      */
     public double getSpeedFactor(){
-        return enginePower * 0.01 * trimFactor;
+        return getEnginePower() * 0.01 * trimFactor;
     }
 
     /**
@@ -34,7 +34,8 @@ public class Volvo240 extends Car{
      * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
-	    currentSpeed = Math.min(getCurrentSpeed() + getSpeedFactor() * amount,enginePower);
+        double newSpeed = Math.min(getCurrentSpeed() + getSpeedFactor() * amount, getEnginePower());
+        setCurrentSpeed(newSpeed);
     }
 
     /**
@@ -43,6 +44,7 @@ public class Volvo240 extends Car{
      * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
-        currentSpeed = Math.max(getCurrentSpeed() - getSpeedFactor() * amount,0);
+        double newSpeed= Math.max(getCurrentSpeed() - getSpeedFactor() * amount,0);
+        setCurrentSpeed(newSpeed);
     }
 }
