@@ -27,7 +27,7 @@ public class Saab95Test {
 
     @Test
     public void speedFactor() {
-        Saab95Test newSaab = new Saab95();
+        Saab95 newSaab = new Saab95();
         assertEquals(enginePower*0.01, newSaab.speedFactor());
 
         newSaab.setTurboOn();
@@ -37,7 +37,7 @@ public class Saab95Test {
     
     @Test
     public void getCurrentSpeed() {
-        Saab95Test newSaab = new Saab95();
+        Saab95 newSaab = new Saab95();
         assertEquals(engineOffSpeed, newSaab.getCurrentSpeed());
 
         newSaab.startEngine();
