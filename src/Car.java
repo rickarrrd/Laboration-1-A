@@ -11,36 +11,58 @@ public abstract class Car implements Movable{
     /**
      * Number of doors on the car.
      */
-    protected int nrDoors; // Number of doors on the car
+    private int nrDoors; // Number of doors on the car
     /**
      * Engine power of the car.
      */
-    protected double enginePower; // Engine power of the car
+    private double enginePower; // Engine power of the car
     /**
      * The current speed of the car.
      */
-    protected double currentSpeed; // The current speed of the car
+    private double currentSpeed; // The current speed of the car
     /**
      * Color of the  car.
      */
-    protected Color color; // Color of the car
+    private Color color; // Color of the car
     /**
      * Direction of the car. Direction =0 points the car along positive y-axis.
      */
-    protected int direction=0; //the angle of the car. direction=0 is along the y-axis and
+    private int direction=0; //the angle of the car. direction=0 is along the y-axis and
     /**
      * Specifies the x coordinate of the position of the car.
      */
-    protected double xcord=0;
+    private double xcord=0;
     /**
      * Specifies the y coordinate of the position of the car.
      */
-    protected double ycord=0;
+    private double ycord=0;
     /**
      * Specifies the model name of the car.
      */
-    public String modelName; // The car model name
+    private String modelName; // The car model name
 
+    public Car(Color color, double enginePower, int nrDoors, String ModelName){
+        this.color=color;
+        this.modelName=modelName;
+
+        setDoors(nrDoors);
+        setEnginePower(enginePower);
+
+    }
+
+    private void setDoors(int doors){
+        this.nrDoors=doors;
+        if(nrDoors<0){
+            this.nrDoors=0;
+        }
+    }
+
+    private void setEnginePower(double enginePower){
+        this.enginePower=enginePower;
+        if(enginePower<0){
+            this.enginePower=0;
+        }
+    }
     /**
      * move moves the object by the distance currentSpeed in the direction of direction
      */

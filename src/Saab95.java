@@ -65,5 +65,4 @@ public class Saab95 extends Car{
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - speedFactor() * amount,0);
     }
-    
 }

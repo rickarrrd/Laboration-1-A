@@ -5,16 +5,18 @@ import java.awt.*;
  */
 public class Volvo240 extends Car{
 
-    protected final static double trimFactor = 1.25; //multiplier that affects speedFactor
+    private final static double trimFactor = 1.25; //multiplier that affects speedFactor
 
     /**
      * Sets parameters for Volvo240.
      */
     public Volvo240(){
-        nrDoors = 4;
-        color = Color.black;
-        enginePower = 100;
-        modelName = "Volvo240";
+        super(
+            Color.black,
+            4,
+            100,
+            "Volvo 240"
+        );
         stopEngine();
     }
 
@@ -43,6 +45,4 @@ public class Volvo240 extends Car{
     public void decrementSpeed(double amount){
         currentSpeed = Math.max(getCurrentSpeed() - getSpeedFactor() * amount,0);
     }
-
-
 }
