@@ -45,10 +45,8 @@ public abstract class Car implements Movable{
         this.color=color;
         this.modelName=modelName;
 
-
         setDoors(nrDoors);
         setEnginePower(enginePower);
-
     }
 
     private void setDoors(int doors){
@@ -65,9 +63,6 @@ public abstract class Car implements Movable{
         }
     }
 
-    public void setCurrentSpeed(double currentSpeed){
-        this.currentSpeed=currentSpeed;
-    }
     /**
      * move moves the object by the distance currentSpeed in the direction of direction
      */
@@ -120,6 +115,14 @@ public abstract class Car implements Movable{
      */
     public double getCurrentSpeed(){
         return currentSpeed;
+    }
+
+    /**
+     * set speed in fake units
+     * @return currentSpeed
+     */
+    public void setCurrentSpeed(double currentSpeed){
+        this.currentSpeed=currentSpeed;
     }
 
     /**
