@@ -43,8 +43,13 @@ public class Volvo240Test {
     public void decrementSpeed(){
         Volvo240 volvo240test = new Volvo240();
 
+        volvo240test.incrementSpeed(2*incrementTestAmount);
         volvo240test.decrementSpeed(incrementTestAmount);
-        assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);
+        assertEquals(engineOffSpeed+volvo240test.getSpeedFactor()*incrementTestAmount,volvo240test.getCurrentSpeed(),delta);
+    
+        volvo240test.decrementSpeed(4*incrementTestAmount);
+        assertEquals(0,volvo240test.getCurrentSpeed(),delta);
+    
     }
     @Test
     public void move(){
@@ -90,7 +95,7 @@ public class Volvo240Test {
 
     @Test
     public void brake(){
-        Saab95 volvo240test = new Volvo240();
+        Volvo240 volvo240test = new Volvo240();
 
         volvo240test.brake(0.5);
         assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);

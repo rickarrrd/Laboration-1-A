@@ -41,7 +41,7 @@ public class Volvo240 extends Car{
      * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
-        currentSpeed = getCurrentSpeed() - getSpeedFactor() * amount;
+        currentSpeed = Math.max(getCurrentSpeed() - getSpeedFactor() * amount,0);
     }
 
 
