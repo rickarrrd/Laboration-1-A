@@ -105,8 +105,8 @@ public class Saab95Test {
         Saab95 newSaab = new Saab95();
 
         newSaab.move();
-        assertEquals(0.0,newSaab.getPosition().getKey(),delta);
-        assertEquals(0.0,newSaab.getPosition().getValue(),delta);
+        assertEquals(0.0,newSaab.getPosition().getKey());
+        assertEquals(0.0,newSaab.getPosition().getValue());
 
         newSaab.incrementSpeed(1.0);
         newSaab.move();
