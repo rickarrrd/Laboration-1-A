@@ -5,7 +5,7 @@ import java.awt.*;
  */
 public class Saab95 extends Car{
 
-    protected boolean turboOn; // Determines turbo on if true, off otherwise.
+    private boolean turboOn; // Determines turbo on if true, off otherwise.
 
     /**
      * Sets parameters for saab95.
@@ -13,8 +13,8 @@ public class Saab95 extends Car{
     public Saab95(){
         super(
             Color.red,
-            2,
             125,
+            2,
             "Saab 95"
         );
 	    turboOn = false;
@@ -23,7 +23,7 @@ public class Saab95 extends Car{
 
     /**
      * Getter for turbo status
-     * @return turboOn
+     * @return turboOn x
      */
     public boolean getTurbo(){
         return turboOn;
@@ -51,6 +51,24 @@ public class Saab95 extends Car{
         double turbo = 1;
         if(turboOn) turbo = 1.3;
         return getEnginePower()* 0.01 * turbo;
+    }
+
+    /**
+     * Increments the currentSpeed by adding amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to increment speed.
+     */
+    public void incrementSpeed(double amount){
+        double newSpeed= Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
+        setCurrentSpeed(newSpeed);
+    }
+
+    /**
+     * Decreases the currentSpeed by subtracting amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to decrement speed.
+     */
+    public void decrementSpeed(double amount){
+        double newSpeed= Math.max(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(newSpeed);
     }
 
 }

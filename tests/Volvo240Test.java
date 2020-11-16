@@ -98,9 +98,9 @@ public class Volvo240Test {
         Volvo240 volvo240test = new Volvo240();
 
         volvo240test.brake(0.5);
-        assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);
+        assertEquals(0,volvo240test.getCurrentSpeed(),delta);
 
         volvo240test.brake(1.5);
-        assertEquals(-0.625,volvo240test.getCurrentSpeed(),delta);
+        assertEquals(0,volvo240test.getCurrentSpeed(),delta);
     }
 }
