@@ -66,8 +66,7 @@ public class Saab95Test {
     public void decrementSpeed() {
 
         Saab95 newSaab = new Saab95();
-
-        newSaab.incrementSpeed(2 * incrementTestAmount);
+        newSaab.incrementSpeed(2*incrementTestAmount);
         newSaab.decrementSpeed(incrementTestAmount);
         assertEquals(engineOffSpeed + newSaab.speedFactor() * incrementTestAmount, newSaab.getCurrentSpeed(), delta);
 
