@@ -70,4 +70,5 @@ public class Saab95 extends Car{
         double newSpeed= Math.max(getCurrentSpeed() - speedFactor() * amount,0);
         setCurrentSpeed(newSpeed);
     }
+
 }
