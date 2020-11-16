@@ -167,16 +167,24 @@ public abstract class Car implements Movable{
 	    currentSpeed = 0;
     }
 
+    public abstract double speedFactor();
     /**
-     * @param amount Specifies the amount of which to increment speed.
+     * Increments the currentSpeed by adding amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to increment speed.
      */
-    public abstract void incrementSpeed(double amount);
+    public void incrementSpeed(double amount){
+        double newSpeed= Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
+        setCurrentSpeed(newSpeed);
+    }
 
     /**
-     * @param amount Specifies the amount of which to decrement speed.
+     * Decreases the currentSpeed by subtracting amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to decrement speed.
      */
-    public abstract void decrementSpeed(double amount);
-
+    public void decrementSpeed(double amount){
+        double newSpeed= Math.min(getCurrentSpeed() - speedFactor() * amount,0);
+        setCurrentSpeed(newSpeed);
+    }
 
     /**
      * Calls incrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
