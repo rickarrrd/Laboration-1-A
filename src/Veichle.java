@@ -1,0 +1,149 @@
+package src;
+
+import java.util.Vector;
+
+public abstract class Veichle {
+   
+    private double enginePower; // Engine power of the car
+    /**
+     * The current speed of the car.
+     */
+    private double currentSpeed; // The current speed of the car
+    /**
+     * Color of the  car.
+     */
+    private int direction=0; //the angle of the car. direction=0 is along the y-axis and
+    /**
+     * Specifies the x coordinate of the position of the car.
+     */
+    private double xcord=0;
+    /**
+     * Specifies the y coordinate of the position of the car.
+     */
+    private double ycord=0;
+    /**
+     * Specifies the model name of the car.
+     */
+    private String modelName; // The car model name
+   
+  //Måste vi inte sätta this.xcord=xcord???
+    public Veichle(){
+        this.modelName=modelName;
+        setEnginePower(enginePower);
+    }
+
+    /**
+     * Returns Pair where getKey and getValue corresponds to x and y coordinates respectively
+     * @return positions
+     */
+    public Pair getPosition(){
+        Pair positions= new Pair(xcord,ycord);
+        return positions;
+    }
+
+    /**
+     * move moves the object by the distance currentSpeed in the direction of direction
+     */
+    public void move(){
+        xcord = xcord + Math.sin(Math.toRadians(direction))*currentSpeed;
+        ycord = ycord + Math.cos(Math.toRadians(direction))*currentSpeed;
+    }
+    /**
+     * Turns direction 90 degrees counter clockwise
+     */
+    public void turnLeft(){
+        direction = (direction+270) % 360;
+    }
+
+    /**
+     * Turns direction 90 degrees clockwise
+     */
+    public void turnRight(){
+        direction = (direction+90)%360;
+    }
+
+    /**
+     * Private setter for constructor with conditions for the set value
+     * @param enginePower
+     */
+    private void setEnginePower(double enginePower){
+        this.enginePower=enginePower;
+        if(enginePower<0){
+            this.enginePower=0;
+        }
+    }
+   
+    /**
+     * double representing engine power in fake units
+     * @return enginePower
+     */
+    public double getEnginePower(){
+        return enginePower;
+    }
+
+    /**
+     * current speed in fake units
+     * @return currentSpeed
+     */
+    public double getCurrentSpeed(){
+        return currentSpeed;
+    }
+
+    /**
+     * Set currentSpeed to default starting value
+     */
+    public void startEngine(){
+	    currentSpeed = 0.1;
+    }
+
+    /**
+     * Set currentSpeed to zero.
+     */
+    public void stopEngine(){
+	    currentSpeed = 0;
+    }
+
+    public abstract double speedFactor();
+    /**
+     * Increments the currentSpeed by adding amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to increment speed.
+     */
+    public void incrementSpeed(double amount){
+        double newSpeed= Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
+        currentSpeed=newSpeed;
+    }
+
+    /**
+     * Decreases the currentSpeed by subtracting amount multiplied by speedFactor.
+     * @param amount Specifies amount of which to decrement speed.
+     */
+    public void decrementSpeed(double amount){
+        double newSpeed= Math.min(getCurrentSpeed() - speedFactor() * amount,0);
+        currentSpeed=newSpeed;
+    }
+
+    /**
+     * Calls incrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
+     * @param amount Specifies amount of which to increment speed.
+     */
+    public void gas(double amount){
+        if(amount>=1.0 || amount<=0.0) {
+            System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
+            return;
+        }
+        incrementSpeed(amount);
+    }
+
+
+    /**
+     * Calls decrementSpeed(amount) if amount is between 0 and 1. Otherwise printing error message.
+     * @param amount Specifies amount of which to decrement speed.
+     */
+    public void brake(double amount){
+        if(amount>=1.0 || amount<=0.0) {
+            System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
+            return;
+        }
+        decrementSpeed(amount);
+    }
+}
