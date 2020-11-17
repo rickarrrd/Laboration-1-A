@@ -17,8 +17,16 @@ public abstract class Car implements Movable{
     private Color color; // Color of the car
     /**
      * Direction of the car. Direction =0 points the car along positive y-axis.
+    */
+    /**
+     * wheter or not the veichle is currently being transported. 
      */
+    private boolean beingTransported=false;
 
+    /**
+     * wheter the car is a regular sized car or not.
+     */
+    private boolean isRegularSized;
     /**
      *
      * @param color Color of car.
@@ -26,10 +34,10 @@ public abstract class Car implements Movable{
      * @param nrDoors Number of doors on car.
      * @param ModelName Model name of the car.
      */
-    public Car(Color color, double enginePower, int nrDoors, String ModelName){
+    public Car(boolean isRegularSized, Color color, int nrDoors){
+        this.isRegularSized=isRegularSized;
         this.color=color;
         setDoors(nrDoors);
-        setEnginePower(enginePower);
     }
 
     /**
@@ -50,6 +58,24 @@ public abstract class Car implements Movable{
     public int getNrDoors(){
         return nrDoors;
     }
+/**
+ * set the car to be under transport 
+ */
+    public void setCurrentlyTransported(){
+        beingTransported=true;
+    }
+    public void dropOffTransport(){
+        beingTransported=false;
+    }
+
+    public void setPositionDuringTransport(double xcord, double ycord){
+        if(beingTransported=false){
+            System.out.println("The veicle must be in transport in order to set its position");
+            return;
+        }
+        this.xcord=xcord;
+        this.ycord=ycord;
+    }
 
     /**
      * color of object
@@ -65,6 +91,4 @@ public abstract class Car implements Movable{
     public void setColor(Color clr){
 	    color = clr;
     }
-
-
 }
