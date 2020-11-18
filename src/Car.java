@@ -34,7 +34,8 @@ public abstract class Car implements Movable{
      * @param nrDoors Number of doors on car.
      * @param ModelName Model name of the car.
      */
-    public Car(boolean isRegularSized, Color color, int nrDoors){
+    public Car(boolean isRegularSized, Color color,double enginePower, int nrDoors, String modelName){
+        super(modelName,enginePower);
         this.isRegularSized=isRegularSized;
         this.color=color;
         setDoors(nrDoors);

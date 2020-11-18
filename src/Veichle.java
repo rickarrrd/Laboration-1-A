@@ -26,7 +26,7 @@ public abstract class Veichle {
     private String modelName; // The car model name
    
   //Måste vi inte sätta this.xcord=xcord???
-    public Veichle(){
+    public Veichle(String modelName, double enginePower){
         this.modelName=modelName;
         setEnginePower(enginePower);
     }
