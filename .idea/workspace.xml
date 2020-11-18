@@ -16,20 +16,18 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboration-1-A.iml" afterDir="false" />
+    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="cars cannot drive under transport">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarCarrierBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarCarrierBed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Saab95Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Saab95Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Volvo240Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Volvo240Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +44,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="elmerHere" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1k6J78A7J1PSQZUPWHelGK53sZF" />
@@ -141,10 +144,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Volvo240Test" />
+        <item itemvalue="JUnit.Saab95Test.speedFactor" />
         <item itemvalue="JUnit.All in Lab1a" />
         <item itemvalue="Android JUnit.Saab95Test" />
-        <item itemvalue="JUnit.Saab95Test.speedFactor" />
-        <item itemvalue="JUnit.Volvo240Test" />
+        <item itemvalue="JUnit.All in Lab1a" />
       </list>
     </recent_temporary>
   </component>
@@ -164,7 +168,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -261,10 +277,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="298" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1605018054512" />
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605711542285">
+    <state x="379" y="85" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605726269947">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605711542285" />
+    <state x="379" y="85" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1605726269947" />
+    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605726146657">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605726146657" />
     <state x="454" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1605530467746">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -284,7 +304,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Car.java</url>
-          <line>49</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -292,6 +312,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lab1a$All_in_Lab1a.ic" NAME="All in Lab1a Coverage Results" MODIFIED="1605530558395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Laboration_1_A$main.ic" NAME="main Coverage Results" MODIFIED="1605714870680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Laboration_1_A$main.ic" NAME="main Coverage Results" MODIFIED="1605718163172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

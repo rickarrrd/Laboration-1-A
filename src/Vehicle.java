@@ -87,6 +87,10 @@ public abstract class Vehicle implements Movable{
      * move moves the object by the distance currentSpeed in the direction of direction
      */
     public void move(){
+        if(beingTransported==true){
+            System.out.println("Cannot move during transport");
+            return;
+        }
         xcord = xcord + Math.sin(Math.toRadians(direction))*currentSpeed;
         ycord = ycord + Math.cos(Math.toRadians(direction))*currentSpeed;
     }
@@ -94,6 +98,10 @@ public abstract class Vehicle implements Movable{
      * Turns direction 90 degrees counter clockwise
      */
     public void turnLeft(){
+        if(beingTransported==true){
+            System.out.println("Cannot turn during transport");
+            return;
+        }
         direction = (direction+270) % 360;
     }
 
@@ -101,6 +109,10 @@ public abstract class Vehicle implements Movable{
      * Turns direction 90 degrees clockwise
      */
     public void turnRight(){
+        if(beingTransported==true){
+            System.out.println("Cannot turn during transport");
+            return;
+        }
         direction = (direction+90)%360;
     }
 
@@ -135,9 +147,12 @@ public abstract class Vehicle implements Movable{
      * Set currentSpeed to default starting value
      */
     public void startEngine(){
-	    currentSpeed = 0.1;
+        if(beingTransported==true){
+            System.out.println("Cannot start engine during transport");
+            return;
+        }
+        currentSpeed = 0.1;
     }
-
     /**
      * Set currentSpeed to zero.
      */
@@ -151,6 +166,11 @@ public abstract class Vehicle implements Movable{
     * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
+        if(beingTransported==true){
+            System.out.println("Cannot drive during transport");
+            return;
+        }
+
         double newSpeed= Math.min(getCurrentSpeed() + getSpeedFactor() * amount,getEnginePower());
         currentSpeed=newSpeed;
     }
@@ -169,7 +189,11 @@ public abstract class Vehicle implements Movable{
      * @param amount Specifies amount of which to increment speed.
      */
     public void gas(double amount){
-        if(amount>1.0 || amount<0.0) {
+        if(beingTransported==true){
+            System.out.println("Cannot drive during transport");
+            return;
+        }
+        else if(amount>1.0 || amount<0.0) {
             System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
             return;
         }
