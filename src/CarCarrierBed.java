@@ -1,9 +1,7 @@
 import java.util.ArrayList;
 
 
-public class CarCarrierBed extends TruckBed{
-
-
+public class CarCarrierBed{
 
     private boolean isRaised;
     private int carsMaxAmount;
@@ -33,7 +31,7 @@ public class CarCarrierBed extends TruckBed{
        isRaised=false; 
     }
 
-    public void loadCar(Car car){
+    public void loadVehicle(Car car){
         if(carriedCars.size()>=carsMaxAmount){
             System.out.println("The Carrier is full, cannot add another car");
             return;
@@ -62,7 +60,7 @@ public class CarCarrierBed extends TruckBed{
         return true;
     }
 
-    public void unloadCar(){
+    public void unloadVehicle(){
         if(getBedAccessible(BedOwner.getCurrentSpeed(), isRaised)==false){
             return;
         }
