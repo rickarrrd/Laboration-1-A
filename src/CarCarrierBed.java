@@ -3,15 +3,18 @@ import java.util.ArrayList;
 
 public class CarCarrierBed extends TruckBed{
 
+
+
     private boolean isRaised;
     private int carsMaxAmount;
 
     private ArrayList<Car> carriedCars= new ArrayList<Car>();
 
-
-    public CarCarrierBed(int carsMaxAmount){
+    WalmartCarCarrier BedOwner;
+    public CarCarrierBed(WalmartCarCarrier BedOwner,int carsMaxAmount){
         this.isRaised=false;
         setCarsMaxAmount(carsMaxAmount);
+        this.BedOwner=BedOwner;
     }
 
     private void setCarsMaxAmount(int carsMaxAmount){
@@ -30,14 +33,6 @@ public class CarCarrierBed extends TruckBed{
        isRaised=false; 
     }
 
-    public boolean isLoadable(){
-        if(isRaised=true){
-            System.out.println("The ramp must be down in order to load cars or unload cars");
-            return false;
-        }
-        return true;
-    }
-
     public void loadCar(Car car){
         if(carriedCars.size()>=carsMaxAmount){
             System.out.println("The Carrier is full, cannot add another car");
@@ -45,19 +40,33 @@ public class CarCarrierBed extends TruckBed{
         }else if(car.getRegularSize()==false){
             System.out.println("The truck is only able to transport regular sized cars");
             return;
-        }else if(isLoadable()==false){
+        }else if(getBedAccessible(BedOwner.getCurrentSpeed(),isRaised)==false){
+            System.out.println("Bed is currently not accessible");
             return;
         }
         car.setBeingTransported(true);
-        car.setLoadedCarPosition(xcord, ycord);
+        car.setPositionDuringTransport(car.getXcord(), car.getYcord());
         carriedCars.add(car);
     }
 
+    public ArrayList<Car>getCarriedCars(){
+        return carriedCars;
+    }
+
+
+    public boolean getBedAccessible(double currentSpeed,boolean isRaised){
+        if(currentSpeed > 0.01 || isRaised == true){
+            System.out.println("The bed is currently not accessible");
+            return false;
+        }
+        return true;
+    }
+
     public void unloadCar(){
-        if(isLoadable()=false){
+        if(getBedAccessible(BedOwner.getCurrentSpeed(), isRaised)==false){
             return;
         }
-
-
+        
     }
+
 }

@@ -10,6 +10,7 @@ public class Volvo240Test {
     double trimFactor = 1.25;
     double enginePower= 100;
     double incrementTestAmount=0.5;
+    /*
     @Test
     public void getSpeedFactor(){
         Volvo240 volvo240test = new Volvo240();
@@ -102,5 +103,5 @@ public class Volvo240Test {
 
         volvo240test.brake(1.5);
         assertEquals(0,volvo240test.getCurrentSpeed(),delta);
-    }
+    }*/
 }

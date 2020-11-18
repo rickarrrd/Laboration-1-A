@@ -14,6 +14,10 @@ public class Scania extends Car{
         );
     }
 
+    public double getSpeedFactor(){
+        return (this.getEnginePower()*0.01);
+    }
+
 
 
     
