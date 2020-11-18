@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 
 
-public class CarCarrierBed{
+public class CarCarrierBed implements IVehicleCarrierBed{
+
+    private VehicleCarrierBedHelper vehicleCarrierBedHelper;
 
     private boolean isRaised;
     private int carsMaxAmount;
@@ -13,15 +15,12 @@ public class CarCarrierBed{
     public CarCarrierBed(WalmartCarCarrier BedOwner,int carsMaxAmount){
         this.isRaised=false;
         this.BedOwner=BedOwner;
-        setCarsMaxAmount(carsMaxAmount);
+        this.setCarsMaxAmount(carsMaxAmount);
+        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this);
     }
 
     private void setCarsMaxAmount(int carsMaxAmount){
-        if(carsMaxAmount<1){
-            System.out.println("Capacity must exceed zero car");
-            return;
-        }
-        this.carsMaxAmount=carsMaxAmount;
+        this.carsMaxAmount=vehicleCarrierBedHelper.setVehicleMaxAmount(carsMaxAmount);
     }
 
     public ArrayList<Car>getCarriedCars(){
@@ -29,22 +28,18 @@ public class CarCarrierBed{
     }
 
     public void raiseRamp(){
-        isRaised=true;
+        isRaised=vehicleCarrierBedHelper.raiseRamp();
     }
 
     public void lowerRamp(){
-        isRaised=false;
+        isRaised=vehicleCarrierBedHelper.lowerRamp();
     }
 
     public boolean getBedAccessible(double currentSpeed,boolean isRaised){
-        if(currentSpeed > 0.01 || isRaised == true){
-            System.out.println("The bed is currently not accessible");
-            return false;
-        }
-        return true;
+        return vehicleCarrierBedHelper.getBedAccessible(currentSpeed, isRaised);
     }
 
-    public void loadVehicle(Car car){
+    public void loadVehicle(Vehicle car){
 
         double distance = Math.sqrt(Math.pow(BedOwner.getXcord()-car.getXcord(),2)+Math.pow(BedOwner.getYcord()-car.getYcord(),2));
 
@@ -64,7 +59,11 @@ public class CarCarrierBed{
         }
         car.setCurrentlyTransported();
         car.setPositionDuringTransport(car.getXcord(), car.getYcord());
-        carriedCars.add(car);
+        //Probably bad below?
+        if(car instanceof Car) {
+            carriedCars.add((Car)car);
+        }
+        System.out.println("Can only add cars.");
     }
 
     public void unloadVehicle(){

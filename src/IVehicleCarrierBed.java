@@ -10,7 +10,4 @@ public interface IVehicleCarrierBed {
 
     boolean getBedAccessible(double currentSpeed, boolean isBedRaised);
 
-    boolean gasAvailable();
-
-
 }

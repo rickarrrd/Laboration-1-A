@@ -1,6 +1,18 @@
 public class VehicleCarrierBedHelper {
 
-    //Static methods in here? So no constructor cus why
+    private IVehicleCarrierBed CarrierBedInNeedOfHelp;
+
+    public VehicleCarrierBedHelper(IVehicleCarrierBed CarrierBedInNeedOfHelp){
+        this.CarrierBedInNeedOfHelp=CarrierBedInNeedOfHelp;
+    }
+
+    public int setVehicleMaxAmount(int amount){
+        if(amount<1){
+            System.out.println("Capacity must exceed zero cars");
+            return 1;
+        }
+        return amount;
+    }
 
     public void loadVehicle() {
 
@@ -10,16 +22,20 @@ public class VehicleCarrierBedHelper {
 
     }
 
-    public static boolean raiseRamp(){
+    public boolean raiseRamp(){
         return true;
     }
 
-    public static boolean lowerRamp() {
+    public boolean lowerRamp() {
         return false;
     }
 
-    public void getBedAccessible() {
-
+    public boolean getBedAccessible(double currentSpeed, boolean isRaised) {
+        if(currentSpeed > 0.01 || isRaised == true){
+            System.out.println("The bed is currently not accessible");
+            return false;
+        }
+        return true;
     }
 
     public static boolean gasAvailable(double bedAngle) {
