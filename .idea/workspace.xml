@@ -16,20 +16,19 @@
         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laboration-1-A.iml" afterDir="false" />
+    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="fixed unload and load">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarCarrierBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarCarrierBed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Saab95Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Saab95Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Volvo240Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Volvo240Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +43,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -157,6 +159,14 @@
       <option name="presentableId" value="Default" />
       <updated>1605014937340</updated>
     </task>
+    <task id="LOCAL-00001" summary="fixed unload and load">
+      <created>1605715949838</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605715949838</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,6 +180,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fixed unload and load" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed unload and load" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="1" width="816" height="727" key="#Intentions" timestamp="1605087238893">
@@ -203,31 +217,35 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="445" y="138" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1366.728@0.0.1366.728" timestamp="1605278510344" />
+    <state x="147" y="66" width="1228" height="695" key="DiffContextDialog" timestamp="1605716755316">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="147" y="66" width="1228" height="695" key="DiffContextDialog/0.0.1536.834@0.0.1536.834" timestamp="1605716755316" />
     <state x="519" y="139" key="FileChooserDialogImpl" timestamp="1605711392323">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="462" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605694815745" />
     <state x="519" y="139" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605711392323" />
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1605714885810">
+    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1605718216723">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1605714885810">
+    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605718216723" />
+    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1605718216723">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1605714885810">
+    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605718216723" />
+    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1605718216723">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605550305459" />
-    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1605714885810">
+    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605718216723" />
+    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1605718216723">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
+    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605718216723" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1605711611073">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -253,6 +271,10 @@
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605256264988" />
     <state x="183" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605711149387" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605716023856">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605716023856" />
     <state x="499" y="144" key="chooseDestDirectoryDialog" timestamp="1605628540300">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -261,10 +283,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="363" y="298" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1605018054512" />
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605711542285">
+    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605725476335">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605711542285" />
+    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605725476335" />
     <state x="454" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1605530467746">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -284,7 +306,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Car.java</url>
-          <line>49</line>
+          <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
@@ -292,6 +314,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lab1a$All_in_Lab1a.ic" NAME="All in Lab1a Coverage Results" MODIFIED="1605530558395" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/Laboration_1_A$main.ic" NAME="main Coverage Results" MODIFIED="1605714870680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Laboration_1_A$main.ic" NAME="main Coverage Results" MODIFIED="1605718163172" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

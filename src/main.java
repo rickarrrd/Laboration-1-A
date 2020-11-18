@@ -18,6 +18,6 @@ public class main {
         System.out.println("Current speed of carrier " + walmartCarCarrier.getCurrentSpeed());
 
         walmartCarCarrier.unloadCar();
-        System.out.println("saab position after unload " + saab95.getYcord());
+        System.out.println("saab position after unload " + saab95.getYcord() + " " + saab95.getXcord());
     }
 }
