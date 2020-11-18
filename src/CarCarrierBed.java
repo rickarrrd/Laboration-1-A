@@ -13,10 +13,10 @@ public class CarCarrierBed implements IVehicleCarrierBed{
     private WalmartCarCarrier BedOwner;
 
     public CarCarrierBed(WalmartCarCarrier BedOwner,int carsMaxAmount){
+        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, BedOwner);
         this.isRaised=false;
         this.BedOwner=BedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
-        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, BedOwner);
     }
 
     private void setCarsMaxAmount(int carsMaxAmount){

@@ -7,6 +7,10 @@ public class VehicleCarrierBedHelper {
         this.BedOwner=BedOwner;
     }
 
+    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp){
+        this.carrierBedInNeedOfHelp=carrierBedInNeedOfHelp;
+    }
+
     public int setVehicleMaxAmount(int amount){
         if(amount<1){
             System.out.println("Capacity must exceed zero cars");
