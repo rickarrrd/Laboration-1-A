@@ -1,8 +1,8 @@
-import javafx.util.Pair;
+/*import javafx.util.Pair;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-
+*/
 public class Volvo240Test {
     double delta=0.01;
     double engineOffSpeed=0; //Newly created volvo currently starts with engine off speed, ie currentSpeed=0
