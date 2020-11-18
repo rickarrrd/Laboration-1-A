@@ -23,7 +23,6 @@ public abstract class Car extends Vehicle implements Movable{
 
     public abstract double getSpeedFactor();
 
-    private boolean isRegularSized;
     /**
      *
      * @param color Color of car.
@@ -34,14 +33,9 @@ public abstract class Car extends Vehicle implements Movable{
 
 
     public Car(boolean isRegularSized, Color color,double enginePower, int nrDoors, String modelName){
-        super(modelName,enginePower);
-        this.isRegularSized=isRegularSized;
+        super(modelName,enginePower,isRegularSized);
         this.color=color;
         setDoors(nrDoors);
-    }
-
-    public boolean getRegularSize(){
-        return isRegularSized;
     }
 
     /**

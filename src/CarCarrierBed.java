@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-
-public class CarCarrierBed{
+public class CarCarrierBed implements IVehicleCarrierBed{
 
     private boolean isRaised;
     private int carsMaxAmount;
@@ -31,7 +30,7 @@ public class CarCarrierBed{
        isRaised=false; 
     }
 
-    public void loadVehicle(Car car){
+    public void loadVehicle(Vehicle car){
         if(carriedCars.size()>=carsMaxAmount){
             System.out.println("The Carrier is full, cannot add another car");
             return;
@@ -44,7 +43,12 @@ public class CarCarrierBed{
         }
         car.setBeingTransported(true);
         car.setPositionDuringTransport(car.getXcord(), car.getYcord());
-        carriedCars.add(car);
+        //Är detta nedan efterblivet?
+        if(car instanceof Car) {
+            carriedCars.add((Car)car);
+            return;
+        }
+        System.out.println("Only cars may be loaded on the truck.");
     }
 
     public ArrayList<Car>getCarriedCars(){
@@ -64,5 +68,8 @@ public class CarCarrierBed{
         if(getBedAccessible(BedOwner.getCurrentSpeed(), isRaised)==false){
             return;
         }
+    }
+    public boolean gasAvailable(){
+        return VehicleCarrierBedHelper.gasAvailable(isRaised);
     }
 }

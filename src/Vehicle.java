@@ -7,6 +7,8 @@ public abstract class Vehicle implements Movable{
     /**
      * The current speed of the car.
      */
+
+    private boolean isRegularSized;
     private double currentSpeed; // The current speed of the car
     /**
      * Color of the  car.
@@ -33,13 +35,18 @@ public abstract class Vehicle implements Movable{
     private String modelName; // The car model name
    
   //Måste vi inte sätta this.xcord=xcord???
-    public Vehicle(String modelName, double enginePower){
+    public Vehicle(String modelName, double enginePower, boolean isRegularSized){
         this.modelName=modelName;
         setEnginePower(enginePower);
+        this.isRegularSized=isRegularSized;
     }
 
     public boolean getBeingTransported(){
         return beingTransported;
+    }
+
+    public boolean getRegularSize(){
+        return isRegularSized;
     }
 
     public void setBeingTransported(boolean beingTransported){
