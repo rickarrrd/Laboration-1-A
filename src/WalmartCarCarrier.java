@@ -17,7 +17,6 @@ public class WalmartCarCarrier extends Car{
                 2,
                 "Truck"
         );
-
         this.carsMaxAmount=6;
         this.carCarrierBed = new CarCarrierBed(this, carsMaxAmount);
     }

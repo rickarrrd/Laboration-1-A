@@ -1,15 +1,25 @@
 import java.util.ArrayList;
 
-public class Workshop implements IVehicleCarrierBed{
+public class Workshop implements IStructureWithCarrierBed{
+
+    private CarCarrierBed carCarrierBed;
 
     private VehicleCarrierBedHelper vehicleCarrierBedHelper;
     private int vehicleMaxAmount;
     private ArrayList<String> whitelistedCarModels;
-    private ArrayList<Vehicle> carriedVehicles;
-    public Workshop(int vehicleMaxAmount, ArrayList<String> whitelistedCarModels){
-        this.vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this);
+    //private ArrayList<Vehicle> carriedVehicles;
+    private double xCord;
+    private double yCord;
+    private int direction;
+
+    public Workshop(int vehicleMaxAmount, ArrayList<String> whitelistedCarModels, int xCord, int yCord, double direction){
+        this.carCarrierBed= new CarCarrierBed( this,vehicleMaxAmount);
+        this.vehicleCarrierBedHelper = new VehicleCarrierBedHelper(carCarrierBed, this);
         this.vehicleMaxAmount=vehicleCarrierBedHelper.setVehicleMaxAmount(vehicleMaxAmount);
         this.whitelistedCarModels=whitelistedCarModels;
+        this.xCord=xCord;
+        this.yCord=yCord;
+
     }
 
 
@@ -20,11 +30,27 @@ public class Workshop implements IVehicleCarrierBed{
     public void unloadVehicle() {
 
     }
-    @Override
+
+    public double getXcord(){
+        return xCord;
+    }
+
+    public double getYcord(){
+        return yCord;
+    }
+
+    public double getDirection(){
+        return direction;
+    }
+
+    public double getCurrentSpeed(){
+        return 0;
+    }
+
     public void raiseRamp() {
         return;
     }
-    @Override
+
     public void lowerRamp() {
         return;
     }
@@ -42,10 +68,10 @@ public class Workshop implements IVehicleCarrierBed{
     }
 
     public ArrayList<Vehicle> getCarriedVehicles(){
-        return carriedVehicles;
+        return carCarrierBed.getCarriedVehicles();
     }
 
     public void addVehicle(Vehicle vehicle){
-        carriedVehicles.add(vehicle);
+        carCarrierBed.addVehicle(vehicle);
     }
 }

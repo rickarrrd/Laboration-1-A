@@ -10,9 +10,9 @@ public class CarCarrierBed implements IVehicleCarrierBed{
 
     private ArrayList<Vehicle> carriedCars= new ArrayList<Vehicle>();
 
-    private WalmartCarCarrier BedOwner;
+    private IStructureWithCarrierBed BedOwner;
 
-    public CarCarrierBed(WalmartCarCarrier BedOwner,int carsMaxAmount){
+    public CarCarrierBed(IStructureWithCarrierBed BedOwner,int carsMaxAmount){
         vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, BedOwner);
         this.isRaised=false;
         this.BedOwner=BedOwner;

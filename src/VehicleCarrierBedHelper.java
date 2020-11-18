@@ -1,14 +1,10 @@
 public class VehicleCarrierBedHelper {
 
     private IVehicleCarrierBed carrierBedInNeedOfHelp;
-    private Vehicle BedOwner;
-    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp, Vehicle BedOwner){
+    private IStructureWithCarrierBed BedOwner;
+    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp, IStructureWithCarrierBed BedOwner){
         this.carrierBedInNeedOfHelp=carrierBedInNeedOfHelp;
         this.BedOwner=BedOwner;
-    }
-
-    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp){
-        this.carrierBedInNeedOfHelp=carrierBedInNeedOfHelp;
     }
 
     public int setVehicleMaxAmount(int amount){
@@ -41,6 +37,27 @@ public class VehicleCarrierBedHelper {
 
     public void unloadVehicle() {
 
+        Vehicle vehicleToBeDroppedOff = carrierBedInNeedOfHelp.getCarriedVehicles().get(carrierBedInNeedOfHelp.getCarriedVehicles().size()-1);
+
+        if(BedOwner instanceof Movable) {
+            if (getBedAccessible(BedOwner.getCurrentSpeed(), carrierBedInNeedOfHelp.getIsRaised()) == false) {
+                return;
+            }
+
+            double direction = BedOwner.getDirection();
+            double newYcord = BedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
+            double newXcord = BedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
+            //The distance between the truck and the car will be 1 unit at dropoff
+            //Is this math correct?
+
+            System.out.println("newXcord is " + newXcord);
+            System.out.println("newYcord is " + newYcord);
+            vehicleToBeDroppedOff.setPositionDuringTransport(newXcord, newYcord);
+            vehicleToBeDroppedOff.dropOffTransport();
+        }
+
+
+        carrierBedInNeedOfHelp.getCarriedVehicles().remove(carrierBedInNeedOfHelp.getCarriedVehicles().size()-1);
     }
 
     public boolean raiseRamp(){
