@@ -66,7 +66,7 @@ public class CarCarrierBed extends TruckBed{
         if(getBedAccessible(BedOwner.getCurrentSpeed(), isRaised)==false){
             return;
         }
-        
+
     }
 
 }

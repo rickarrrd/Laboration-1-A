@@ -22,10 +22,8 @@ public class WalmartCarCarrier extends Car{
         this.carCarrierBed = new CarCarrierBed(this, carsMaxAmount);
     }
 
-
-
     public double getSpeedFactor(){
-        return (this.getEnginePower()*0.01);
+        return (getEnginePower()*0.01);
     }
 
     public void raiseRamp(){

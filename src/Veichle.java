@@ -1,7 +1,7 @@
 
 import java.util.Vector;
 
-public abstract class Veichle {
+public abstract class Veichle implements Movable{
    
     private double enginePower; // Engine power of the car
     /**

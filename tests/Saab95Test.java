@@ -10,7 +10,7 @@ public class Saab95Test {
     double enginePower= 125;
     double incrementTestAmount=0.5;
     double turboOn;
-    /*
+
     @Test
     public void setTurboOn() {
         Saab95 newSaab = new Saab95();
@@ -103,23 +103,23 @@ public class Saab95Test {
         Saab95 newSaab = new Saab95();
 
         newSaab.move();
-        assertEquals(0.0,newSaab.getPosition().getKey());
-        assertEquals(0.0,newSaab.getPosition().getValue());
+        assertEquals(0.0,newSaab.getXcord(),delta);
+        assertEquals(0.0,newSaab.getYcord(),delta);
 
         newSaab.incrementSpeed(1.0);
         newSaab.move();
-        assertEquals(0.0,newSaab.getPosition().getKey());
-        assertEquals(1.25,newSaab.getPosition().getValue());
+        assertEquals(0.0,newSaab.getXcord(),delta);
+        assertEquals(1.25,newSaab.getYcord(),delta);
 
         newSaab.turnRight();
         newSaab.move();
-        assertEquals(1.25,newSaab.getPosition().getKey());
-        assertEquals(1.25,newSaab.getPosition().getValue());
+        assertEquals(1.25,newSaab.getXcord(),delta);
+        assertEquals(1.25,newSaab.getYcord(),delta);
 
         newSaab.turnLeft();
         newSaab.move();
-        assertEquals(1.25,newSaab.getPosition().getKey());
-        assertEquals(2.5,newSaab.getPosition().getValue());
-    }*/
+        assertEquals(1.25,newSaab.getXcord(),delta);
+        assertEquals(2.5,newSaab.getYcord(),delta);
+    }
 
 }
