@@ -8,22 +8,26 @@ public class CarCarrierBed implements IVehicleCarrierBed{
     private boolean isRaised;
     private int carsMaxAmount;
 
-    private ArrayList<Car> carriedCars= new ArrayList<Car>();
+    private ArrayList<Vehicle> carriedCars= new ArrayList<Vehicle>();
 
-    WalmartCarCarrier BedOwner;
+    private WalmartCarCarrier BedOwner;
 
     public CarCarrierBed(WalmartCarCarrier BedOwner,int carsMaxAmount){
         this.isRaised=false;
         this.BedOwner=BedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
-        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this);
+        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, BedOwner);
     }
 
     private void setCarsMaxAmount(int carsMaxAmount){
         this.carsMaxAmount=vehicleCarrierBedHelper.setVehicleMaxAmount(carsMaxAmount);
     }
 
-    public ArrayList<Car>getCarriedCars(){
+    public int getCarsMaxAmount(){
+        return this.carsMaxAmount;
+    }
+
+    public ArrayList<Vehicle>getCarriedVehicles(){
         return carriedCars;
     }
 
@@ -41,36 +45,31 @@ public class CarCarrierBed implements IVehicleCarrierBed{
 
     public void loadVehicle(Vehicle car){
 
-        double distance = Math.sqrt(Math.pow(BedOwner.getXcord()-car.getXcord(),2)+Math.pow(BedOwner.getYcord()-car.getYcord(),2));
-
-        if(distance>1){
-            System.out.println("The Vehicle is to far away to be loaded");
-            return;
-        }
-        else if(carriedCars.size()>=carsMaxAmount){
-            System.out.println("The Carrier is full, cannot add another car");
-            return;
-        }else if(car.getRegularSize()==false){
+        if(car.getRegularSize()==false){
             System.out.println("The truck is only able to transport regular sized cars");
             return;
-        }else if(getBedAccessible(BedOwner.getCurrentSpeed(),isRaised)==false) {
-            System.out.println("Bed is currently not accessible");
-            return;
         }
-        car.setCurrentlyTransported();
-        car.setPositionDuringTransport(car.getXcord(), car.getYcord());
-        //Probably bad below?
-        if(car instanceof Car) {
-            carriedCars.add((Car)car);
+
+        vehicleCarrierBedHelper.loadVehicle(car);
+
+    }
+
+    public boolean getIsRaised(){
+        return isRaised;
+    }
+
+    public void addVehicle(Vehicle vehicle){
+        if(vehicle instanceof Car) {
+            carriedCars.add((Car)vehicle);
         }
-        System.out.println("Can only add cars.");
+        System.out.println("Can only add cars");
     }
 
     public void unloadVehicle(){
         if(getBedAccessible(BedOwner.getCurrentSpeed(), isRaised)==false){
             return;
         }
-        Car car = carriedCars.get(carriedCars.size()-1);
+        Vehicle car = carriedCars.get(carriedCars.size()-1);
 
         //The distance between the truck and the car will be 1 unit at dropoff
         //Is this math correct?

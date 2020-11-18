@@ -1,9 +1,10 @@
 public class VehicleCarrierBedHelper {
 
-    private IVehicleCarrierBed CarrierBedInNeedOfHelp;
-
-    public VehicleCarrierBedHelper(IVehicleCarrierBed CarrierBedInNeedOfHelp){
-        this.CarrierBedInNeedOfHelp=CarrierBedInNeedOfHelp;
+    private IVehicleCarrierBed carrierBedInNeedOfHelp;
+    private Vehicle BedOwner;
+    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp, Vehicle BedOwner){
+        this.carrierBedInNeedOfHelp=carrierBedInNeedOfHelp;
+        this.BedOwner=BedOwner;
     }
 
     public int setVehicleMaxAmount(int amount){
@@ -14,8 +15,24 @@ public class VehicleCarrierBedHelper {
         return amount;
     }
 
-    public void loadVehicle() {
+    public void loadVehicle(Vehicle vehicle) {
 
+        double distance = Math.sqrt(Math.pow(BedOwner.getXcord()-vehicle.getXcord(),2)+Math.pow(BedOwner.getYcord()-vehicle.getYcord(),2));
+
+        if(distance>1){
+            System.out.println("The Vehicle is to far away to be loaded");
+            return;
+        }
+        else if(carrierBedInNeedOfHelp.getCarriedVehicles().size()>=carrierBedInNeedOfHelp.getCarsMaxAmount()) {
+            System.out.println("The Carrier is full, cannot add another car");
+            return;
+        }
+        else if(carrierBedInNeedOfHelp.getBedAccessible(BedOwner.getCurrentSpeed(),carrierBedInNeedOfHelp.getIsRaised())==false) {
+            return;
+        }
+        this.carrierBedInNeedOfHelp.addVehicle(vehicle);
+        vehicle.setCurrentlyTransported();
+        vehicle.setPositionDuringTransport(vehicle.getXcord(), vehicle.getYcord());
     }
 
     public void unloadVehicle() {

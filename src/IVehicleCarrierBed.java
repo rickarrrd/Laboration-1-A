@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface IVehicleCarrierBed {
 
     void loadVehicle(Vehicle vehicle);
@@ -10,4 +12,11 @@ public interface IVehicleCarrierBed {
 
     boolean getBedAccessible(double currentSpeed, boolean isBedRaised);
 
+    void addVehicle(Vehicle vehicle);
+
+    ArrayList<Vehicle> getCarriedVehicles();
+
+    int getCarsMaxAmount();
+
+    boolean getIsRaised();
 }
