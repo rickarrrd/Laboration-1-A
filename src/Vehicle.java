@@ -1,7 +1,7 @@
 
 import java.util.Vector;
 
-public abstract class Veichle implements Movable{
+public abstract class Vehicle implements Movable{
    
     private double enginePower; // Engine power of the car
     /**
@@ -33,7 +33,7 @@ public abstract class Veichle implements Movable{
     private String modelName; // The car model name
    
   //Måste vi inte sätta this.xcord=xcord???
-    public Veichle(String modelName, double enginePower){
+    public Vehicle(String modelName, double enginePower){
         this.modelName=modelName;
         setEnginePower(enginePower);
     }

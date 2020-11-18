@@ -1,12 +1,10 @@
-import javafx.util.Pair;
-
 import java.awt.Color;
 import java.lang.*;
-import java.text.BreakIterator;
+
 /**
  * Abstract class Car is a template for any car model
  */
-public abstract class Car extends Veichle implements Movable{
+public abstract class Car extends Vehicle implements Movable{
     /**
      * Number of doors on the car.
      */
