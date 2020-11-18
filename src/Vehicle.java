@@ -42,16 +42,16 @@ public abstract class Vehicle implements Movable{
         return beingTransported;
     }
 
-    public void setBeingTransported(boolean beingTransported){
-        this.beingTransported=beingTransported;
-    }
-
     public double getXcord(){
         return xcord;
     }
 
     public double getYcord(){
         return ycord;
+    }
+
+    public double getDirection(){
+        return direction;
     }
 
     public void setCurrentlyTransported(){
@@ -66,6 +66,8 @@ public abstract class Vehicle implements Movable{
             System.out.println("The veicle must be in transport in order to set its position");
             return;
         }
+        System.out.println("newXcord is " + xcord);
+        System.out.println("newYcord is " + ycord);
         this.xcord=xcord;
         this.ycord=ycord;
     }
@@ -156,7 +158,7 @@ public abstract class Vehicle implements Movable{
      * @param amount Specifies amount of which to increment speed.
      */
     public void gas(double amount){
-        if(amount>=1.0 || amount<=0.0) {
+        if(amount>1.0 || amount<0.0) {
             System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
             return;
         }
@@ -169,7 +171,7 @@ public abstract class Vehicle implements Movable{
      * @param amount Specifies amount of which to decrement speed.
      */
     public void brake(double amount){
-        if(amount>=1.0 || amount<=0.0) {
+        if(amount>1.0 || amount<0.0) {
             System.out.println(amount + " was an invalid input since the input has to be a double between 0 and 1");
             return;
         }
