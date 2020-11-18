@@ -41,6 +41,10 @@ public abstract class Vehicle implements Movable, IStructureWithCarrierBed{
         this.isRegularSized=isRegularSized;
     }
 
+    public String getModelName(){
+        return this.modelName;
+    }
+
     public boolean getBeingTransported(){
         return beingTransported;
     }

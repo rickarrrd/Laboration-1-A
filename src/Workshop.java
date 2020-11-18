@@ -6,29 +6,41 @@ public class Workshop implements IStructureWithCarrierBed{
 
     private VehicleCarrierBedHelper vehicleCarrierBedHelper;
     private int vehicleMaxAmount;
-    private ArrayList<String> whitelistedCarModels;
+    private ArrayList<Vehicle> whitelistedCarModels;
     //private ArrayList<Vehicle> carriedVehicles;
     private double xCord;
     private double yCord;
     private int direction;
 
-    public Workshop(int vehicleMaxAmount, ArrayList<String> whitelistedCarModels, int xCord, int yCord, double direction){
+    public Workshop(int vehicleMaxAmount, ArrayList<Vehicle> whitelistedCarModels, int xCord, int yCord, int direction){
         this.carCarrierBed= new CarCarrierBed( this,vehicleMaxAmount);
         this.vehicleCarrierBedHelper = new VehicleCarrierBedHelper(carCarrierBed, this);
         this.vehicleMaxAmount=vehicleCarrierBedHelper.setVehicleMaxAmount(vehicleMaxAmount);
         this.whitelistedCarModels=whitelistedCarModels;
         this.xCord=xCord;
         this.yCord=yCord;
-
+        this.direction=direction;
     }
 
 
-    public void loadVehicle(Vehicle vehicle) {
 
+    public void loadVehicle(Vehicle vehicle){
+        if(this.checkIfInWhitelist(whitelistedCarModels,vehicle)) {
+            carCarrierBed.loadVehicle(vehicle);
+        }
+    }
+
+    private boolean checkIfInWhitelist(ArrayList<Vehicle> whitelistedCarModels, Vehicle vehicleToBeChecked){
+        for(Vehicle whitelistedCarModel : whitelistedCarModels){
+            if(vehicleToBeChecked.getClass() == whitelistedCarModel.getClass()){
+                return true;
+            }
+        }
+        return false;
     }
 
     public void unloadVehicle() {
-
+        carCarrierBed.unloadVehicle();
     }
 
     public double getXcord(){
@@ -47,19 +59,7 @@ public class Workshop implements IStructureWithCarrierBed{
         return 0;
     }
 
-    public void raiseRamp() {
-        return;
-    }
-
-    public void lowerRamp() {
-        return;
-    }
-
     public boolean getBedAccessible(double currentSpeed, boolean isBedRaised) {
-        return true;
-    }
-
-    public boolean getIsRaised(){
         return true;
     }
 

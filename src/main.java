@@ -1,4 +1,6 @@
 import java.sql.SQLOutput;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class main {
     /**
@@ -6,18 +8,18 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        WalmartCarCarrier walmartCarCarrier = new WalmartCarCarrier();
-        walmartCarCarrier.lowerRamp();
+
+
+
+        Workshop workshop1 = new Workshop(10,new ArrayList<Vehicle>(Arrays.asList(new Volvo240())),
+                0, 0, 0);
 
         Saab95 saab95 = new Saab95();
-        walmartCarCarrier.loadCar(saab95);
+        Volvo240 volvo240 = new Volvo240();
 
-        walmartCarCarrier.gas(1.0);
-        walmartCarCarrier.move();
-        walmartCarCarrier.brake(1);
-        System.out.println("Current speed of carrier " + walmartCarCarrier.getCurrentSpeed());
-
-        walmartCarCarrier.unloadCar();
-        System.out.println("saab position after unload " + saab95.getYcord());
+        workshop1.loadVehicle(volvo240);
+        workshop1.loadVehicle(volvo240);
+        //workshop1.loadVehicle(saab95);
+        System.out.println(workshop1.getCarriedVehicles());
     }
 }

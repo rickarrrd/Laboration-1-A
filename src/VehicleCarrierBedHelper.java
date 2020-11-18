@@ -1,10 +1,10 @@
 public class VehicleCarrierBedHelper {
 
     private IVehicleCarrierBed carrierBedInNeedOfHelp;
-    private IStructureWithCarrierBed BedOwner;
-    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp, IStructureWithCarrierBed BedOwner){
+    private IStructureWithCarrierBed bedOwner;
+    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp, IStructureWithCarrierBed bedOwner){
         this.carrierBedInNeedOfHelp=carrierBedInNeedOfHelp;
-        this.BedOwner=BedOwner;
+        this.bedOwner=bedOwner;
     }
 
     public int setVehicleMaxAmount(int amount){
@@ -17,7 +17,8 @@ public class VehicleCarrierBedHelper {
 
     public void loadVehicle(Vehicle vehicle) {
 
-        double distance = Math.sqrt(Math.pow(BedOwner.getXcord()-vehicle.getXcord(),2)+Math.pow(BedOwner.getYcord()-vehicle.getYcord(),2));
+        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()-vehicle.getXcord(),2)+
+                Math.pow(bedOwner.getYcord()-vehicle.getYcord(),2));
 
         if(distance>1){
             System.out.println("The Vehicle is to far away to be loaded");
@@ -27,7 +28,7 @@ public class VehicleCarrierBedHelper {
             System.out.println("The Carrier is full, cannot add another car");
             return;
         }
-        else if(carrierBedInNeedOfHelp.getBedAccessible(BedOwner.getCurrentSpeed(),carrierBedInNeedOfHelp.getIsRaised())==false) {
+        else if(!carrierBedInNeedOfHelp.getBedAccessible(bedOwner.getCurrentSpeed(),carrierBedInNeedOfHelp.getIsRaised())) {
             return;
         }
         this.carrierBedInNeedOfHelp.addVehicle(vehicle);
@@ -39,14 +40,14 @@ public class VehicleCarrierBedHelper {
 
         Vehicle vehicleToBeDroppedOff = carrierBedInNeedOfHelp.getCarriedVehicles().get(carrierBedInNeedOfHelp.getCarriedVehicles().size()-1);
 
-        if(BedOwner instanceof Movable) {
-            if (getBedAccessible(BedOwner.getCurrentSpeed(), carrierBedInNeedOfHelp.getIsRaised()) == false) {
+        if(bedOwner instanceof Movable) {
+            if (getBedAccessible(bedOwner.getCurrentSpeed(), carrierBedInNeedOfHelp.getIsRaised()) == false) {
                 return;
             }
 
-            double direction = BedOwner.getDirection();
-            double newYcord = BedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
-            double newXcord = BedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
+            double direction = bedOwner.getDirection();
+            double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
+            double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
             //The distance between the truck and the car will be 1 unit at dropoff
             //Is this math correct?
 

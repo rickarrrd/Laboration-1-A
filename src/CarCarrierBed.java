@@ -10,12 +10,12 @@ public class CarCarrierBed implements IVehicleCarrierBed{
 
     private ArrayList<Vehicle> carriedCars= new ArrayList<Vehicle>();
 
-    private IStructureWithCarrierBed BedOwner;
+    private IStructureWithCarrierBed bedOwner;
 
-    public CarCarrierBed(IStructureWithCarrierBed BedOwner,int carsMaxAmount){
-        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, BedOwner);
+    public CarCarrierBed(IStructureWithCarrierBed bedOwner,int carsMaxAmount){
+        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, bedOwner);
         this.isRaised=false;
-        this.BedOwner=BedOwner;
+        this.bedOwner=bedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
     }
 
@@ -61,21 +61,22 @@ public class CarCarrierBed implements IVehicleCarrierBed{
     public void addVehicle(Vehicle vehicle){
         if(vehicle instanceof Car) {
             carriedCars.add((Car)vehicle);
+            return;
         }
         System.out.println("Can only add cars");
     }
 
     public void unloadVehicle(){
-        if(getBedAccessible(BedOwner.getCurrentSpeed(), isRaised)==false){
+        if(!getBedAccessible(bedOwner.getCurrentSpeed(), isRaised)){
             return;
         }
         Vehicle car = carriedCars.get(carriedCars.size()-1);
 
         //The distance between the truck and the car will be 1 unit at dropoff
         //Is this math correct?
-        double direction = BedOwner.getDirection();
-        double newYcord = BedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
-        double newXcord = BedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
+        double direction = bedOwner.getDirection();
+        double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
+        double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
 
         System.out.println("newXcord is " + newXcord);
         System.out.println("newYcord is " + newYcord);
