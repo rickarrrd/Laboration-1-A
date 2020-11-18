@@ -33,10 +33,10 @@ public class WalmartCarCarrier extends Car{
         carCarrierBed.lowerRamp();
     }
     public void loadCar(Car car){
-        carCarrierBed.loadCar(car);
+        carCarrierBed.loadVehicle(car);
     }
     public void unloadCar(){
-        carCarrierBed.unloadCar();
+        carCarrierBed.unloadVehicle();
     }
     public ArrayList<Car>getCarriedCars(){
         return carCarrierBed.getCarriedCars();

@@ -29,13 +29,13 @@ public class Scania extends Car{
 
     @Override
     public void gas(double amount){
-        if(!this.isTilted()){
+        if(this.gasAvailable()){
             super.gas(amount);
         }
     }
 
-    private boolean isTilted(){
-        if(tiltableBed.getAngle()>0.01){
+    private boolean gasAvailable(){
+        if(tiltableBed.getAngle()<0.01 && tiltableBed.getAngle()>-0.01){
             System.out.println("Gas may only be applied when bed angle is set to 0");
             return true;
         }
