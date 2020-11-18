@@ -1,4 +1,4 @@
-public class TiltableBed extends TruckBed{
+public class TiltableBed{
 
     private double angle;
     private Scania bedOwner;
