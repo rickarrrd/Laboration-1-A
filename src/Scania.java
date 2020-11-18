@@ -2,12 +2,15 @@ import java.awt.*;
 
 public class Scania extends Car{
 
+    private TiltableBed tiltableBed;
+
     public Scania(){
         super(
-                Color.black,
+                false,
+                 Color.black,
                 400,
                 2,
-                "Scania semi truck"
+                "Scania"
         );
     }
 

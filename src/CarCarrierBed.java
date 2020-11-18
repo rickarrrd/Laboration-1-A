@@ -42,13 +42,13 @@ public class CarCarrierBed extends TruckBed{
         if(carriedCars.size()>=carsMaxAmount){
             System.out.println("The Carrier is full, cannot add another car");
             return;
-        }else if(car.isRegularSized==false){
+        }else if(car.getRegularSize()==false){
             System.out.println("The truck is only able to transport regular sized cars");
             return;
-        }else if(isLoadable()=false){
+        }else if(isLoadable()==false){
             return;
         }
-        car.isLoaded=true;
+        car.setBeingTransported(true);
         car.setLoadedCarPosition(xcord, ycord);
         carriedCars.add(car);
     }

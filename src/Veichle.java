@@ -23,12 +23,27 @@ public abstract class Veichle {
     /**
      * Specifies the model name of the car.
      */
+
+    /**
+     * wheter or not the veichle is currently being transported.
+     */
+    private boolean beingTransported=false;
+
+
     private String modelName; // The car model name
    
   //Måste vi inte sätta this.xcord=xcord???
     public Veichle(String modelName, double enginePower){
         this.modelName=modelName;
         setEnginePower(enginePower);
+    }
+
+    public boolean getBeingTransported(){
+        return beingTransported;
+    }
+
+    public void setBeingTransported(boolean beingTransported){
+        this.beingTransported=beingTransported;
     }
 
     public double getXcord(){
@@ -38,6 +53,23 @@ public abstract class Veichle {
     public double getYcord(){
         return ycord;
     }
+
+    public void setCurrentlyTransported(){
+        beingTransported=true;
+    }
+    public void dropOffTransport(){
+        beingTransported=false;
+    }
+
+    public void setPositionDuringTransport(double xcord, double ycord){
+        if(beingTransported=false){
+            System.out.println("The veicle must be in transport in order to set its position");
+            return;
+        }
+        this.xcord=xcord;
+        this.ycord=ycord;
+    }
+
     /**
      * move moves the object by the distance currentSpeed in the direction of direction
      */
@@ -100,13 +132,13 @@ public abstract class Veichle {
 	    currentSpeed = 0;
     }
 
-    public abstract double speedFactor();
+    public abstract double getSpeedFactor();
     /**
      * Increments the currentSpeed by adding amount multiplied by speedFactor.
     * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
-        double newSpeed= Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
+        double newSpeed= Math.min(getCurrentSpeed() + getSpeedFactor() * amount,getEnginePower());
         currentSpeed=newSpeed;
     }
 
@@ -115,7 +147,7 @@ public abstract class Veichle {
      * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
-        double newSpeed= Math.min(getCurrentSpeed() - speedFactor() * amount,0);
+        double newSpeed= Math.min(getCurrentSpeed() - getSpeedFactor() * amount,0);
         currentSpeed=newSpeed;
     }
 
