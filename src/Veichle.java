@@ -32,15 +32,13 @@ public abstract class Veichle {
         setEnginePower(enginePower);
     }
 
-    /**
-     * Returns Pair where getKey and getValue corresponds to x and y coordinates respectively
-     * @return positions
-     */
-    public Pair getPosition(){
-        Pair positions= new Pair(xcord,ycord);
-        return positions;
+    public double getXcord(){
+        return xcord;
     }
 
+    public double getYcord(){
+        return ycord;
+    }
     /**
      * move moves the object by the distance currentSpeed in the direction of direction
      */
@@ -106,7 +104,7 @@ public abstract class Veichle {
     public abstract double speedFactor();
     /**
      * Increments the currentSpeed by adding amount multiplied by speedFactor.
-     * @param amount Specifies amount of which to increment speed.
+    * @param amount Specifies amount of which to increment speed.
      */
     public void incrementSpeed(double amount){
         double newSpeed= Math.min(getCurrentSpeed() + speedFactor() * amount,getEnginePower());
