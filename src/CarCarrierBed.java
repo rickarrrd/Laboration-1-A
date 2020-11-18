@@ -59,7 +59,6 @@ public class CarCarrierBed extends TruckBed{
             return;
         }
 
-        carried
 
     }
 }
