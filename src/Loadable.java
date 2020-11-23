@@ -6,7 +6,7 @@ public interface Loadable {
 
     public boolean getRegularSize();
 
-    public void setCUrrentlyTransported();
+    public void setCurrentlyTransported();
 
-    public void setPositionDuringTransport()
+    public void setPositionDuringTransport(double xCord, double yCord);
 }

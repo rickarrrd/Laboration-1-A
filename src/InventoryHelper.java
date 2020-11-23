@@ -32,8 +32,8 @@ public class InventoryHelper {
             return;
         }
         this.inventoryInNeedOfHelp.addLoadable(loadable);
-        //loadable.setCurrentlyTransported();
-        //loadable.setPositionDuringTransport(loadable.getXcord(), loadable.getYcord());
+        loadable.setCurrentlyTransported();
+        loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
     }
 
     public void unloadVehicle() {

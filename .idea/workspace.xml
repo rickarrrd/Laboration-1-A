@@ -27,8 +27,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to WalmartCarCarrier">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/InventoryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InventoryHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loadable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loadable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transporter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
