@@ -1,4 +1,4 @@
-public interface IStructureWithCarrierBed {
+public interface IHasInventory {
 
     double getXcord();
 

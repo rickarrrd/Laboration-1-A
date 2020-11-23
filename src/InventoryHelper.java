@@ -1,9 +1,9 @@
-public class VehicleCarrierBedHelper {
+public class InventoryHelper {
 
-    private IVehicleCarrierBed carrierBedInNeedOfHelp;
-    private IStructureWithCarrierBed bedOwner;
-    public VehicleCarrierBedHelper(IVehicleCarrierBed carrierBedInNeedOfHelp, IStructureWithCarrierBed bedOwner){
-        this.carrierBedInNeedOfHelp=carrierBedInNeedOfHelp;
+    private IInventory inventoryInNeedOfHelp;
+    private IHasInventory bedOwner;
+    public InventoryHelper(IInventory inventoryInNeedOfHelp, IHasInventory bedOwner){
+        this.inventoryInNeedOfHelp = inventoryInNeedOfHelp;
         this.bedOwner=bedOwner;
     }
 
@@ -15,33 +15,33 @@ public class VehicleCarrierBedHelper {
         return amount;
     }
 
-    public void loadVehicle(Vehicle vehicle) {
+    public void load(Loadable loadable) {
 
-        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()-vehicle.getXcord(),2)+
-                Math.pow(bedOwner.getYcord()-vehicle.getYcord(),2));
+        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()-loadable.getXcord(),2)+
+                Math.pow(bedOwner.getYcord()-loadable.getYcord(),2));
 
         if(distance>1){
             System.out.println("The Vehicle is to far away to be loaded");
             return;
         }
-        else if(carrierBedInNeedOfHelp.getCarriedVehicles().size()>=carrierBedInNeedOfHelp.getCarsMaxAmount()) {
+        else if(inventoryInNeedOfHelp.getCarriedVehicles().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
             System.out.println("The Carrier is full, cannot add another car");
             return;
         }
-        else if(!carrierBedInNeedOfHelp.getBedAccessible(bedOwner.getCurrentSpeed(),carrierBedInNeedOfHelp.getIsRaised())) {
+        else if(!inventoryInNeedOfHelp.getBedAccessible(bedOwner.getCurrentSpeed(), inventoryInNeedOfHelp.getIsRaised())) {
             return;
         }
-        this.carrierBedInNeedOfHelp.addVehicle(vehicle);
-        vehicle.setCurrentlyTransported();
-        vehicle.setPositionDuringTransport(vehicle.getXcord(), vehicle.getYcord());
+        this.inventoryInNeedOfHelp.addLoadable(loadable);
+        //loadable.setCurrentlyTransported();
+        //loadable.setPositionDuringTransport(loadable.getXcord(), loadable.getYcord());
     }
 
     public void unloadVehicle() {
 
-        Vehicle vehicleToBeDroppedOff = carrierBedInNeedOfHelp.getCarriedVehicles().get(carrierBedInNeedOfHelp.getCarriedVehicles().size()-1);
+        Vehicle vehicleToBeDroppedOff = inventoryInNeedOfHelp.getCarriedVehicles().get(inventoryInNeedOfHelp.getCarriedVehicles().size()-1);
 
         if(bedOwner instanceof Movable) {
-            if (getBedAccessible(bedOwner.getCurrentSpeed(), carrierBedInNeedOfHelp.getIsRaised()) == false) {
+            if (getBedAccessible(bedOwner.getCurrentSpeed(), inventoryInNeedOfHelp.getIsRaised()) == false) {
                 return;
             }
 
@@ -58,7 +58,7 @@ public class VehicleCarrierBedHelper {
         }
 
 
-        carrierBedInNeedOfHelp.getCarriedVehicles().remove(carrierBedInNeedOfHelp.getCarriedVehicles().size()-1);
+        inventoryInNeedOfHelp.getCarriedVehicles().remove(inventoryInNeedOfHelp.getCarriedVehicles().size()-1);
     }
 
     public boolean raiseRamp(){

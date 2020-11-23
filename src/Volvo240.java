@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * non abstract class Volvo240 extends Car with added specific parameters to the car model.
  */
-public class Volvo240 extends Car{
+public class Volvo240 extends Car implements Loadable{
 
     private final static double trimFactor = 1.25; //multiplier that affects speedFactor
 

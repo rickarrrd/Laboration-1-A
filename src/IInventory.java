@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
-public interface IVehicleCarrierBed {
+public interface IInventory {
 
-    void loadVehicle(Vehicle vehicle);
+    void load(Loadable loadable);
 
     void unloadVehicle();
 
@@ -12,7 +12,7 @@ public interface IVehicleCarrierBed {
 
     boolean getBedAccessible(double currentSpeed, boolean isBedRaised);
 
-    void addVehicle(Vehicle vehicle);
+    void addLoadable(Loadable loadable);
 
     ArrayList<Vehicle> getCarriedVehicles();
 

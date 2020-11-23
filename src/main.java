@@ -11,14 +11,14 @@ public class main {
 
 
 
-        Workshop workshop1 = new Workshop(10,new ArrayList<Vehicle>(Arrays.asList(new Volvo240())),
+        Workshop workshop1 = new Workshop(10,new ArrayList<Loadable>(Arrays.asList(new Volvo240())),
                 0, 0, 0);
 
         Saab95 saab95 = new Saab95();
         Volvo240 volvo240 = new Volvo240();
 
-        workshop1.loadVehicle(volvo240);
-        workshop1.loadVehicle(volvo240);
+        workshop1.load(volvo240);
+        workshop1.load(volvo240);
         //workshop1.loadVehicle(saab95);
         System.out.println(workshop1.getCarriedVehicles());
     }

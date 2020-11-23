@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
-public class Workshop implements IStructureWithCarrierBed{
+public class Workshop implements IHasInventory {
 
     private CarCarrierBed carCarrierBed;
 
-    private VehicleCarrierBedHelper vehicleCarrierBedHelper;
+    private InventoryHelper inventoryHelper;
     private int vehicleMaxAmount;
-    private ArrayList<Vehicle> whitelistedCarModels;
+    private ArrayList<Loadable> whitelistedCarModels;
     //private ArrayList<Vehicle> carriedVehicles;
     private double xCord;
     private double yCord;
@@ -21,10 +21,10 @@ public class Workshop implements IStructureWithCarrierBed{
      * @param yCord The y coordinate of the workshop
      * @param direction
      */
-    public Workshop(int vehicleMaxAmount, ArrayList<Vehicle> whitelistedCarModels, int xCord, int yCord, int direction){
+    public Workshop(int vehicleMaxAmount, ArrayList<Loadable> whitelistedCarModels, int xCord, int yCord, int direction){
         this.carCarrierBed= new CarCarrierBed( this,vehicleMaxAmount);
-        this.vehicleCarrierBedHelper = new VehicleCarrierBedHelper(carCarrierBed, this);
-        this.vehicleMaxAmount=vehicleCarrierBedHelper.setVehicleMaxAmount(vehicleMaxAmount);
+        this.inventoryHelper = new InventoryHelper(carCarrierBed, this);
+        this.vehicleMaxAmount= inventoryHelper.setVehicleMaxAmount(vehicleMaxAmount);
         this.whitelistedCarModels=whitelistedCarModels;
         this.xCord=xCord;
         this.yCord=yCord;
@@ -35,9 +35,9 @@ public class Workshop implements IStructureWithCarrierBed{
      * Load a car into the workshop
      * @param vehicle the car to be loaded
      */
-    public void loadVehicle(Vehicle vehicle){
-        if(this.checkIfInWhitelist(whitelistedCarModels,vehicle)) {
-            carCarrierBed.loadVehicle(vehicle);
+    public void load(Loadable loadable){
+        if(this.checkIfInWhitelist(whitelistedCarModels,loadable)) {
+            carCarrierBed.load(loadable);
         }
     }
 
@@ -47,8 +47,8 @@ public class Workshop implements IStructureWithCarrierBed{
      * @param vehicleToBeChecked the car to be checked
      * @return wheter or not the car is allowed or not
      */
-    private boolean checkIfInWhitelist(ArrayList<Vehicle> whitelistedCarModels, Vehicle vehicleToBeChecked){
-        for(Vehicle whitelistedCarModel : whitelistedCarModels){
+    private boolean checkIfInWhitelist(ArrayList<Loadable> whitelistedCarModels, Loadable vehicleToBeChecked){
+        for(Loadable whitelistedCarModel : whitelistedCarModels){
             if(vehicleToBeChecked.getClass() == whitelistedCarModel.getClass()){
                 return true;
             }
@@ -107,7 +107,7 @@ public class Workshop implements IStructureWithCarrierBed{
      * Add a vehicle to the workshop
      * @param vehicle the vehicle to be added
      */
-    public void addVehicle(Vehicle vehicle){
-        carCarrierBed.addVehicle(vehicle);
+    public void addVehicle(Loadable loadable){
+        carCarrierBed.addLoadable(loadable);
     }
 }

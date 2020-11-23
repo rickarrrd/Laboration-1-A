@@ -53,8 +53,8 @@ public class WalmartCarCarrier extends Car{
      * Load a car unto the truck
      * @param car the car to be loaded
      */
-    public void loadCar(Car car){
-        carCarrierBed.loadVehicle(car);
+    public void load(Loadable loadable){
+        carCarrierBed.load(loadable);
     }
 
     /**

@@ -1,27 +1,27 @@
 import java.util.ArrayList;
 
 
-public class CarCarrierBed implements IVehicleCarrierBed{
+public class CarCarrierBed implements IInventory {
 
     /**
      * Creates the helper for the CarrierBed functions
      */
-    private VehicleCarrierBedHelper vehicleCarrierBedHelper;
+    private InventoryHelper inventoryHelper;
 
     private boolean isRaised;
     private int carsMaxAmount;
 
     private ArrayList<Vehicle> carriedCars= new ArrayList<Vehicle>();
 
-    private IStructureWithCarrierBed bedOwner;
+    private IHasInventory bedOwner;
 
     /**
      * Set parameters for the CarrierBed
      * @param bedOwner the owner of the carrierbed
      * @param carsMaxAmount the max capacity of cars
      */
-    public CarCarrierBed(IStructureWithCarrierBed bedOwner,int carsMaxAmount){
-        vehicleCarrierBedHelper = new VehicleCarrierBedHelper(this, bedOwner);
+    public CarCarrierBed(IHasInventory bedOwner, int carsMaxAmount){
+        inventoryHelper = new InventoryHelper(this, bedOwner);
         this.isRaised=false;
         this.bedOwner=bedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
@@ -31,7 +31,7 @@ public class CarCarrierBed implements IVehicleCarrierBed{
      * Sets max capacity
      */
     private void setCarsMaxAmount(int carsMaxAmount){
-        this.carsMaxAmount=vehicleCarrierBedHelper.setVehicleMaxAmount(carsMaxAmount);
+        this.carsMaxAmount= inventoryHelper.setVehicleMaxAmount(carsMaxAmount);
     }
 
     /**
@@ -59,14 +59,14 @@ public class CarCarrierBed implements IVehicleCarrierBed{
      * Raise the ramp of the bed
      */
     public void raiseRamp(){
-        isRaised=vehicleCarrierBedHelper.raiseRamp();
+        isRaised= inventoryHelper.raiseRamp();
     }
 
     /**
      * Lower the ramp of the bed
      */
     public void lowerRamp(){
-        isRaised=vehicleCarrierBedHelper.lowerRamp();
+        isRaised= inventoryHelper.lowerRamp();
     }
 
     /**
@@ -76,19 +76,19 @@ public class CarCarrierBed implements IVehicleCarrierBed{
      * @return wheter or not the bed is accessible
      */
     public boolean getBedAccessible(double currentSpeed,boolean isRaised){
-        return vehicleCarrierBedHelper.getBedAccessible(currentSpeed, isRaised);
+        return inventoryHelper.getBedAccessible(currentSpeed, isRaised);
     }
 
     /**
      * Loads a car onto the carrier bed
      * @param car the car which is about to get loaded
      */
-    public void loadVehicle(Vehicle car){
-        if(car.getRegularSize()==false){
+    public void load(Loadable loadable){
+        if(loadable.getRegularSize()==false){
             System.out.println("The truck is only able to transport regular sized cars");
             return;
         }
-        vehicleCarrierBedHelper.loadVehicle(car);
+        inventoryHelper.load(loadable);
     }
 
     /**
@@ -96,9 +96,9 @@ public class CarCarrierBed implements IVehicleCarrierBed{
       * @param vehicle
      */
 
-    public void addVehicle(Vehicle vehicle){
-        if(vehicle instanceof Car) {
-            carriedCars.add((Car)vehicle);
+    public void addLoadable(Loadable loadable){
+        if(loadable instanceof Car) {
+            carriedCars.add((Car)loadable);
             return;
         }
         System.out.println("Can only add cars");

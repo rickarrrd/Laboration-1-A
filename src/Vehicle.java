@@ -1,7 +1,4 @@
-
-import java.util.Vector;
-
-public abstract class Vehicle implements Movable, IStructureWithCarrierBed{
+public abstract class Vehicle implements Movable, IHasInventory {
    
     private double enginePower; // Engine power of the car
     /**

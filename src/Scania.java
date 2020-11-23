@@ -47,7 +47,7 @@ public class Scania extends Car{
 
     @Override
     public void gas(double amount){
-        if(VehicleCarrierBedHelper.gasAvailable(amount)){
+        if(InventoryHelper.gasAvailable(amount)){
             super.gas(amount);
         }
     }
