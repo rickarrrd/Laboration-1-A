@@ -25,8 +25,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to Vehicle och tog bort &quot;setBeingTransported&quot;">
-      <change beforePath="$PROJECT_DIR$/src/WalmartCarCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WalmartCarCarrier.java" afterDir="false" />
+    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to WalmartCarCarrier">
+      <change beforePath="$PROJECT_DIR$/src/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workshop.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606164094535</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added comments to WalmartCarCarrier">
+      <created>1606164394452</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606164394452</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -223,7 +230,8 @@
     <MESSAGE value="Added comments to car and scania" />
     <MESSAGE value="added comments to CarcarrierBed och TiltableBed" />
     <MESSAGE value="added comments to Vehicle och tog bort &quot;setBeingTransported&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="added comments to Vehicle och tog bort &quot;setBeingTransported&quot;" />
+    <MESSAGE value="added comments to WalmartCarCarrier" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments to WalmartCarCarrier" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="1" width="816" height="727" key="#Intentions" timestamp="1605087238893">
@@ -307,10 +315,10 @@
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605256264988" />
     <state x="183" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605711149387" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606164097463">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606164397757">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606164097463" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606164397756" />
     <state x="499" y="144" key="chooseDestDirectoryDialog" timestamp="1605628540300">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -340,11 +348,11 @@
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605253627055" />
     <state x="381" y="180" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1605714375342" />
-    <state x="389" y="56" width="756" height="777" key="search.everywhere.popup" timestamp="1606164082740">
+    <state x="389" y="56" width="756" height="777" key="search.everywhere.popup" timestamp="1606164446363">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1605198445247" />
-    <state x="389" y="56" width="756" height="777" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606164082740" />
+    <state x="389" y="56" width="756" height="777" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1606164446363" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
