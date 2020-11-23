@@ -85,7 +85,9 @@ public class VehicleCarrierBedHelper {
         return false;
     }
 
+
     public static boolean gasAvailable(boolean isRaised){
+
         if(isRaised){
             return true;
         }

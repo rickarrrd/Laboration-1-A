@@ -26,8 +26,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="cars cannot drive under transport">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/transportHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scania.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/VehicleCarrierBedHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VehicleCarrierBedHelper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +46,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -161,6 +168,14 @@
       <option name="presentableId" value="Default" />
       <updated>1605014937340</updated>
     </task>
+    <task id="LOCAL-00001" summary="cars cannot drive under transport">
+      <created>1605726412174</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605726412174</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,6 +201,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="cars cannot drive under transport" />
+    <option name="LAST_COMMIT_MESSAGE" value="cars cannot drive under transport" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="1" width="816" height="727" key="#Intentions" timestamp="1605087238893">
@@ -224,42 +243,42 @@
     </state>
     <state x="462" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605694815745" />
     <state x="519" y="139" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605711392323" />
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1605714885810">
+    <state width="1493" height="265" key="GridCell.Tab.0.bottom" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1605714885810">
+    <state width="1493" height="265" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
+    <state width="1493" height="265" key="GridCell.Tab.0.center" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1605714885810">
+    <state width="1493" height="265" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
+    <state width="1493" height="265" key="GridCell.Tab.0.left" timestamp="1605738296127">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605550305459" />
-    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1605714885810">
+    <state width="1493" height="265" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1605738296127" />
+    <state width="1493" height="265" key="GridCell.Tab.0.right" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605714885810" />
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1605711611073">
+    <state width="1493" height="265" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605711611073" />
-    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1605711611073">
+    <state width="1493" height="265" key="GridCell.Tab.1.bottom/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
+    <state width="1493" height="265" key="GridCell.Tab.1.center" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1605711611073" />
-    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1605711611073">
+    <state width="1493" height="265" key="GridCell.Tab.1.center/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
+    <state width="1493" height="265" key="GridCell.Tab.1.left" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1605711611073" />
-    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1605711611073">
+    <state width="1493" height="265" key="GridCell.Tab.1.left/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
+    <state width="1493" height="265" key="GridCell.Tab.1.right" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1605711611073" />
+    <state width="1493" height="265" key="GridCell.Tab.1.right/0.0.1536.834@0.0.1536.834" timestamp="1605738296128" />
     <state x="373" y="122" key="NewModule_or_Project.wizard" timestamp="1605711141347">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -269,6 +288,10 @@
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605256264988" />
     <state x="183" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605711149387" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1605726416144">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1605726416144" />
     <state x="499" y="144" key="chooseDestDirectoryDialog" timestamp="1605628540300">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -281,10 +304,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="379" y="85" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1605726269947" />
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605726146657">
+    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1605726401489">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605726146657" />
+    <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1605726401489" />
     <state x="454" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1605530467746">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -294,18 +317,27 @@
     </state>
     <state x="339" y="157" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1605253627055" />
     <state x="381" y="180" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1605714375342" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1605198445247">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="389" y="56" width="756" height="777" key="search.everywhere.popup" timestamp="1605812238547">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1605198445247" />
+    <state x="389" y="56" width="756" height="777" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1605812238547" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Car.java</url>
-          <line>43</line>
+          <line>42</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/CarCarrierBed.java</url>
+          <line>33</line>
+          <properties class="CarCarrierBed">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
