@@ -26,21 +26,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to WalmartCarCarrier">
-      <change afterPath="$PROJECT_DIR$/src/ITransportable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Loadable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Transporter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarCarrierBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarCarrierBed.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IStructureWithCarrierBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHasInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IVehicleCarrierBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scania.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/VehicleCarrierBedHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InventoryHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Volvo240.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Volvo240.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WalmartCarCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WalmartCarCarrier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workshop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/transportHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Loadable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loadable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Transporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transporter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,7 +81,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -329,11 +317,12 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="373" y="122" key="NewModule_or_Project.wizard/0.0.1536.834@0.0.1536.834" timestamp="1605711141347" />
-    <state x="183" y="0" key="SettingsEditor" timestamp="1605711149387">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="229" y="0" key="SettingsEditor" timestamp="1606166306867">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605256264988" />
     <state x="183" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605711149387" />
+    <state x="229" y="0" key="SettingsEditor/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606166306867" />
     <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606164397757">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -5,4 +5,8 @@ public interface Loadable {
     public double getYcord();
 
     public boolean getRegularSize();
+
+    public void setCUrrentlyTransported();
+
+    public void setPositionDuringTransport()
 }
