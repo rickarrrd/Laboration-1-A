@@ -28,11 +28,11 @@ public abstract class Car extends Vehicle implements Movable{
      * @param color Color of car.
      * @param enginePower Specifies engine power.
      * @param nrDoors Number of doors on car.
-     * @param ModelName Model name of the car.
+     * @param modelName Model name of the car.
      */
 
-    public Car(boolean isRegularSized, Color color,double enginePower, int nrDoors, String modelName){
-        super(modelName,enginePower,isRegularSized);
+    public Car(boolean isRegularSizedCar, Color color,double enginePower, int nrDoors, String modelName){
+        super(modelName,enginePower,isRegularSizedCar);
         this.color=color;
         setDoors(nrDoors);
     }

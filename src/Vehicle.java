@@ -8,7 +8,7 @@ public abstract class Vehicle implements Movable, IStructureWithCarrierBed{
      * The current speed of the car.
      */
 
-    private boolean isRegularSized;
+    private boolean isRegularSizedCar;
     private double currentSpeed; // The current speed of the car
     /**
      * Color of the  car.
@@ -31,47 +31,75 @@ public abstract class Vehicle implements Movable, IStructureWithCarrierBed{
      */
     private boolean beingTransported=false;
 
+    /**
+     * the modelname of the vehicle
+     */
+    private String modelName;
 
-    private String modelName; // The car model name
-   
-  //Måste vi inte sätta this.xcord=xcord???
-    public Vehicle(String modelName, double enginePower, boolean isRegularSized){
+    /**
+     * Sets the parameters for the Vehicle
+     * @param modelName the model name of the car
+     * @param enginePower the maximum power of the car, and ability to accelerate
+     * @param isRegularSizedCar wheter or not the vehicle is a regular sized cark
+     */
+    public Vehicle(String modelName, double enginePower, boolean isRegularSizedCar){
         this.modelName=modelName;
         setEnginePower(enginePower);
-        this.isRegularSized=isRegularSized;
+        this.isRegularSizedCar=isRegularSizedCar;
     }
 
+    /**
+     * @return the model of the vehicle
+     */
     public String getModelName(){
         return this.modelName;
     }
 
+    /**
+     * @return wheter or not the veichle is currently being transported
+     */
     public boolean getBeingTransported(){
         return beingTransported;
     }
 
+    /**
+     * @return returns wheter or not the vehicle is a regular sized car
+     */
     public boolean getRegularSize(){
-        return isRegularSized;
+        return isRegularSizedCar;
     }
 
-    public void setBeingTransported(boolean beingTransported){
-        this.beingTransported=beingTransported;
-    }
-
+    /**
+     * @return the x coordinate of the vehilce
+     */
     public double getXcord(){
         return xcord;
     }
 
+    /**
+     * @return the y coordinate of the vehilce
+     */
     public double getYcord(){
         return ycord;
     }
 
+    /**
+     * @return the direction of the vehilce
+     */
     public double getDirection(){
         return direction;
     }
 
+    /**
+     * Set the vehicle to currently being transported
+     */
     public void setCurrentlyTransported(){
         beingTransported=true;
     }
+
+    /**
+     * Stop vehicle from being transported
+     */
     public void dropOffTransport(){
         beingTransported=false;
     }
