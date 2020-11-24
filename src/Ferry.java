@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Ferry extends Vehicle implements IHasInventory{
 
     private CarInventory carInventory;
@@ -7,8 +9,9 @@ public class Ferry extends Vehicle implements IHasInventory{
 
     public Ferry(){
         super("Ferry",200,false,false);
-        speedFactor=1;
         loadableMaxAmount=100;
+        this.carInventory=new CarInventory(this, loadableMaxAmount);
+        speedFactor=1;
     }
 
     public void load(ILoadable ILoadable){
@@ -23,6 +26,10 @@ public class Ferry extends Vehicle implements IHasInventory{
 
     public double getSpeedFactor(){
         return speedFactor;
+    }
+
+    public ArrayList<ILoadable> getCarriedCars(){
+        return carInventory.getCarriedTransportables();
     }
 
 

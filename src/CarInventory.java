@@ -24,6 +24,7 @@ public class CarInventory implements IInventory {
         inventoryHelper = new InventoryHelper(this, bedOwner);
         this.bedOwner=bedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
+        this.isRaised=true;
     }
 
     /**
@@ -65,7 +66,7 @@ public class CarInventory implements IInventory {
      * Lower the ramp of the bed
      */
     public void lowerRamp(){
-        isRaised= inventoryHelper.lowerRamp();
+        isRaised=inventoryHelper.lowerRamp();
     }
 
     /**
@@ -79,7 +80,9 @@ public class CarInventory implements IInventory {
             System.out.println("The bed is currently not accessible");
             return false;
         }
-        if(isRaised=true){
+        if(isRaised){
+            System.out.println("Bed must be lowered.");
+            System.out.println("inte nice.");
             return false;
         }
         return true;
@@ -91,7 +94,7 @@ public class CarInventory implements IInventory {
      */
     public void load(ILoadable loadable){
         if(isReadyToBeLoaded()) {
-            carriedTransportables =inventoryHelper.load(loadable);
+            carriedTransportables=inventoryHelper.load(loadable);
             loadable.setCurrentlyTransported();
             loadable.setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
         }
@@ -123,6 +126,5 @@ public class CarInventory implements IInventory {
         carriedTransportables.get(indexOfLoadable).setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
         carriedTransportables.get(indexOfLoadable).dropOff();
         carriedTransportables =inventoryHelper.unload(indexOfLoadable);
-
     }
 }

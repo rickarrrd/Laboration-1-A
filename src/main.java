@@ -8,17 +8,10 @@ public class main {
      */
     public static void main(String[] args) {
 
-
-
-        Workshop workshop1 = new Workshop(10,new ArrayList<ILoadable>(Arrays.asList(new Volvo240())),
-                0, 0, 0);
-
-        Saab95 saab95 = new Saab95();
+        Ferry ferry = new Ferry();
         Volvo240 volvo240 = new Volvo240();
 
-        workshop1.load(volvo240);
-        workshop1.load(volvo240);
-        //workshop1.loadVehicle(saab95);
-        System.out.println(workshop1.getCarriedVehicles());
+        ferry.load(volvo240);
+        System.out.println(ferry.getCarriedCars());
     }
 }

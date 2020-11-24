@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public interface IHasInventory {
 
     double getXcord();
@@ -9,5 +11,7 @@ public interface IHasInventory {
     double getDirection();
 
     public boolean isReadyToBeLoaded();
+
+    ArrayList<ILoadable> getCarriedCars();
 
 }

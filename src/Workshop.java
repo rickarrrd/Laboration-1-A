@@ -24,6 +24,7 @@ public class Workshop implements IHasInventory {
      */
     public Workshop(int vehicleMaxAmount, ArrayList<ILoadable> whitelistedCarModels, int xCord, int yCord, int direction){
         this.carInventory = new CarInventory( this,vehicleMaxAmount);
+        carInventory.lowerRamp();
         this.inventoryHelper = new InventoryHelper(carInventory, this);
         this.vehicleMaxAmount= inventoryHelper.setVehicleMaxAmount(vehicleMaxAmount);
         this.whitelistedCarModels=whitelistedCarModels;
@@ -36,9 +37,9 @@ public class Workshop implements IHasInventory {
      * Load a car into the workshop
      * @param vehicle the car to be loaded
      */
-    public void load(ILoadable ILoadable){
-        if(this.checkIfInWhitelist(whitelistedCarModels, ILoadable)) {
-            carInventory.load(ILoadable);
+    public void load(ILoadable loadable){
+        if(this.checkIfInWhitelist(whitelistedCarModels, loadable)) {
+            carInventory.load(loadable);
         }
     }
 
@@ -104,7 +105,7 @@ public class Workshop implements IHasInventory {
     /**
      * @return list of all stored cars
      */
-    public ArrayList<ILoadable> getCarriedVehicles(){
+    public ArrayList<ILoadable> getCarriedCars(){
         return carInventory.getCarriedTransportables();
     }
 

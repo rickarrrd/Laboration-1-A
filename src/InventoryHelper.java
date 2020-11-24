@@ -17,10 +17,10 @@ public class InventoryHelper {
         return amount;
     }
 
-    public ArrayList<ILoadable> load(ILoadable ILoadable) {
+    public ArrayList<ILoadable> load(ILoadable loadable) {
 
-        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()- ILoadable.getXcord(),2)+
-                Math.pow(bedOwner.getYcord()- ILoadable.getYcord(),2));
+        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()- loadable.getXcord(),2)+
+                Math.pow(bedOwner.getYcord()- loadable.getYcord(),2));
 
         if(distance>1){
             System.out.println("The Vehicle is to far away to be loaded");
@@ -32,7 +32,7 @@ public class InventoryHelper {
         }
 
         ArrayList<ILoadable> newCarriedILoadables = new ArrayList<ILoadable> (inventoryInNeedOfHelp.getCarriedTransportables());
-        newCarriedILoadables.add(ILoadable);
+        newCarriedILoadables.add(loadable);
         return newCarriedILoadables;
         //loadable.setCurrentlyTransported();
         //loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
