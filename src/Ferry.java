@@ -32,5 +32,9 @@ public class Ferry extends Vehicle implements IHasInventory{
         return carInventory.getCarriedTransportables();
     }
 
+    public void lowerRamp(){
+        carInventory.lowerRamp();
+    }
+
 
 }
