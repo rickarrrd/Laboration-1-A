@@ -1,4 +1,4 @@
-public interface Loadable {
+public interface ILoadable {
 
     public double getXcord();
 
@@ -13,4 +13,6 @@ public interface Loadable {
     public void setPositionDuringTransport(double xCord, double yCord);
 
     public void dropOff();
+
+
 }

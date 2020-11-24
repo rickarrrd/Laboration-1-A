@@ -2,24 +2,28 @@ public class Ferry extends Vehicle implements IHasInventory{
 
     private CarInventory carInventory;
     private double speedFactor;
+    private boolean firstInFirstOut= true;
+    private int loadableMaxAmount;
 
-    public Ferry(String modelName, double enginePower){
-        super(modelName,enginePower,false,false);
+    public Ferry(){
+        super("Ferry",200,false,false);
         speedFactor=1;
+        loadableMaxAmount=100;
     }
 
-    public void load(Loadable loadable){
-        if(loadable.getTruckSized() || loadable.getCarSized()){
-            carInventory.load(loadable);
+    public void load(ILoadable ILoadable){
+        if(ILoadable.getTruckSized() || ILoadable.getCarSized() || isReadyToBeLoaded()){
+            carInventory.load(ILoadable);
         }
+    }
 
+    public void unload(ILoadable ILoadable){
+        carInventory.unload(firstInFirstOut);
     }
 
     public double getSpeedFactor(){
         return speedFactor;
     }
-
-
 
 
 }

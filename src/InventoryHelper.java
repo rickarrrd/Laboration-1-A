@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class InventoryHelper {
 
     private IInventory inventoryInNeedOfHelp;
@@ -15,29 +17,50 @@ public class InventoryHelper {
         return amount;
     }
 
-    public void load(Loadable loadable) {
+    public ArrayList<ILoadable> load(ILoadable ILoadable) {
 
-        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()-loadable.getXcord(),2)+
-                Math.pow(bedOwner.getYcord()-loadable.getYcord(),2));
+        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()- ILoadable.getXcord(),2)+
+                Math.pow(bedOwner.getYcord()- ILoadable.getYcord(),2));
 
         if(distance>1){
             System.out.println("The Vehicle is to far away to be loaded");
-            return;
+            return inventoryInNeedOfHelp.getCarriedTransportables();
         }
-        else if(inventoryInNeedOfHelp.getCarriedLoadables().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
+        else if(inventoryInNeedOfHelp.getCarriedTransportables().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
             System.out.println("The Carrier is full, cannot add another car");
-            return;
+            return inventoryInNeedOfHelp.getCarriedTransportables();
         }
-        this.inventoryInNeedOfHelp.addLoadable(loadable);
+
+        ArrayList<ILoadable> newCarriedILoadables = new ArrayList<ILoadable> (inventoryInNeedOfHelp.getCarriedTransportables());
+        newCarriedILoadables.add(ILoadable);
+        return newCarriedILoadables;
         //loadable.setCurrentlyTransported();
         //loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
     }
 
-    public void unload() {
+    public ArrayList<ILoadable> unload(int indexOfLoadable) {
 
-        Loadable loadableToBeDroppedOff = inventoryInNeedOfHelp.getCarriedLoadables().get(inventoryInNeedOfHelp.getCarriedLoadables().size()-1);
+        ILoadable ILoadable = inventoryInNeedOfHelp.getCarriedTransportables().get(indexOfLoadable);
 
-        inventoryInNeedOfHelp.getCarriedLoadables().remove(inventoryInNeedOfHelp.getCarriedLoadables().size()-1);
+        if(!inventoryInNeedOfHelp.isReadyToBeLoaded()){
+            return inventoryInNeedOfHelp.getCarriedTransportables();
+        }
+
+
+        //The distance between the truck and the car will be 1 unit at dropoff
+        //Is this math correct?
+        double direction = bedOwner.getDirection();
+        double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
+        double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
+
+        System.out.println("newXcord is " + newXcord);
+        System.out.println("newYcord is " + newYcord);
+
+
+        ArrayList<ILoadable> newCarriedILoadables =inventoryInNeedOfHelp.getCarriedTransportables();
+        newCarriedILoadables.remove(indexOfLoadable);
+
+        return newCarriedILoadables;
     }
 
     public boolean raiseRamp(){

@@ -6,11 +6,12 @@ public class Workshop implements IHasInventory {
 
     private InventoryHelper inventoryHelper;
     private int vehicleMaxAmount;
-    private ArrayList<Loadable> whitelistedCarModels;
+    private ArrayList<ILoadable> whitelistedCarModels;
     //private ArrayList<Vehicle> carriedVehicles;
     private double xCord;
     private double yCord;
     private int direction;
+    private boolean firstInFirstOut=false;
 
 
     /**
@@ -21,7 +22,7 @@ public class Workshop implements IHasInventory {
      * @param yCord The y coordinate of the workshop
      * @param direction
      */
-    public Workshop(int vehicleMaxAmount, ArrayList<Loadable> whitelistedCarModels, int xCord, int yCord, int direction){
+    public Workshop(int vehicleMaxAmount, ArrayList<ILoadable> whitelistedCarModels, int xCord, int yCord, int direction){
         this.carInventory = new CarInventory( this,vehicleMaxAmount);
         this.inventoryHelper = new InventoryHelper(carInventory, this);
         this.vehicleMaxAmount= inventoryHelper.setVehicleMaxAmount(vehicleMaxAmount);
@@ -35,9 +36,9 @@ public class Workshop implements IHasInventory {
      * Load a car into the workshop
      * @param vehicle the car to be loaded
      */
-    public void load(Loadable loadable){
-        if(this.checkIfInWhitelist(whitelistedCarModels,loadable)) {
-            carInventory.load(loadable);
+    public void load(ILoadable ILoadable){
+        if(this.checkIfInWhitelist(whitelistedCarModels, ILoadable)) {
+            carInventory.load(ILoadable);
         }
     }
 
@@ -47,8 +48,8 @@ public class Workshop implements IHasInventory {
      * @param vehicleToBeChecked the car to be checked
      * @return wheter or not the car is allowed or not
      */
-    private boolean checkIfInWhitelist(ArrayList<Loadable> whitelistedCarModels, Loadable vehicleToBeChecked){
-        for(Loadable whitelistedCarModel : whitelistedCarModels){
+    private boolean checkIfInWhitelist(ArrayList<ILoadable> whitelistedCarModels, ILoadable vehicleToBeChecked){
+        for(ILoadable whitelistedCarModel : whitelistedCarModels){
             if(vehicleToBeChecked.getClass() == whitelistedCarModel.getClass()){
                 return true;
             }
@@ -64,7 +65,7 @@ public class Workshop implements IHasInventory {
      * Release a car from the workshop
      */
     public void unloadVehicle() {
-        carInventory.unloadVehicle();
+        carInventory.unload(firstInFirstOut);
     }
 
     /**
@@ -103,15 +104,12 @@ public class Workshop implements IHasInventory {
     /**
      * @return list of all stored cars
      */
-    public ArrayList<Loadable> getCarriedVehicles(){
-        return carInventory.getCarriedLoadables();
+    public ArrayList<ILoadable> getCarriedVehicles(){
+        return carInventory.getCarriedTransportables();
     }
 
     /**
      * Add a vehicle to the workshop
      * @param vehicle the vehicle to be added
      */
-    public void addVehicle(Loadable loadable){
-        carInventory.addLoadable(loadable);
-    }
 }

@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,7 +10,7 @@ public class main {
 
 
 
-        Workshop workshop1 = new Workshop(10,new ArrayList<Loadable>(Arrays.asList(new Volvo240())),
+        Workshop workshop1 = new Workshop(10,new ArrayList<ILoadable>(Arrays.asList(new Volvo240())),
                 0, 0, 0);
 
         Saab95 saab95 = new Saab95();

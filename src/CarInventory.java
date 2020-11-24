@@ -11,7 +11,7 @@ public class CarInventory implements IInventory {
 
     private int carsMaxAmount;
 
-    private ArrayList<Loadable> carriedLoadables= new ArrayList<Loadable>();
+    private ArrayList<ILoadable> carriedTransportables = new ArrayList<ILoadable>();
 
     private IHasInventory bedOwner;
 
@@ -43,8 +43,8 @@ public class CarInventory implements IInventory {
     /**
      * @return the current cars on the bed
      */
-    public ArrayList<Loadable> getCarriedLoadables(){
-        return carriedLoadables;
+    public ArrayList<ILoadable> getCarriedTransportables(){
+        return carriedTransportables;
     }
 
     /**
@@ -89,8 +89,12 @@ public class CarInventory implements IInventory {
      * Loads a car onto the carrier bed
      * @param car the car which is about to get loaded
      */
-    public void load(Loadable loadable){
-        inventoryHelper.load(loadable);
+    public void load(ILoadable loadable){
+        if(isReadyToBeLoaded()) {
+            carriedTransportables =inventoryHelper.load(loadable);
+            loadable.setCurrentlyTransported();
+            loadable.setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
+        }
     }
 
     /**
@@ -98,6 +102,8 @@ public class CarInventory implements IInventory {
       * @param vehicle
      */
 
+
+    /*
     public void addLoadable(Loadable loadable){
         if(loadable instanceof Car) {
             carriedLoadables.add((Loadable)loadable);
@@ -105,23 +111,18 @@ public class CarInventory implements IInventory {
         }
         System.out.println("Can only add cars");
     }
-
-    public void unloadVehicle(){
-        if(!isReadyToBeLoaded()){
-            return;
+*/
+    public void unload(boolean firstInFirstOut){
+        int indexOfLoadable;
+        if(firstInFirstOut){
+            indexOfLoadable=0;
+        }else{
+            indexOfLoadable= carriedTransportables.size()-1;
         }
-        Loadable loadable = carriedLoadables.get(carriedLoadables.size()-1);
 
-        //The distance between the truck and the car will be 1 unit at dropoff
-        //Is this math correct?
-        double direction = bedOwner.getDirection();
-        double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
-        double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
+        carriedTransportables.get(indexOfLoadable).setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
+        carriedTransportables.get(indexOfLoadable).dropOff();
+        carriedTransportables =inventoryHelper.unload(indexOfLoadable);
 
-        System.out.println("newXcord is " + newXcord);
-        System.out.println("newYcord is " + newYcord);
-        loadable.setPositionDuringTransport(newXcord, newYcord);
-        carriedLoadables.remove(carriedLoadables.size()-1);
-        loadable.dropOff();
     }
 }

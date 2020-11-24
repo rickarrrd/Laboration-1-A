@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class WalmartCarCarrier extends Car implements IHasInventory{
 
     private int carsMaxAmount;
-
+    private boolean firstInFirstOut= false;
 
     /**
      * Creates the carrier bed of the truck
@@ -18,6 +18,7 @@ public class WalmartCarCarrier extends Car implements IHasInventory{
     public WalmartCarCarrier(){
         super(
                 false,
+                 true,
                  Color.white,
                 600,
                 2,
@@ -59,22 +60,26 @@ public class WalmartCarCarrier extends Car implements IHasInventory{
      * Load a car unto the truck
      * @param car the car to be loaded
      */
-    public void load(Loadable loadable){
-        carInventory.load(loadable);
+    public void load(ILoadable ILoadable){
+        if(ILoadable.getCarSized() && ILoadable.getTruckSized()) {
+            carInventory.load(ILoadable);
+        }else{
+            System.out.println("Must be car sized.");
+        }
     }
 
     /**
      * Unload a car from the truck
      */
     public void unloadCar(){
-        carInventory.unloadVehicle();
+        carInventory.unload(firstInFirstOut);
     }
 
     /**
      * @return all the cars currenly being transported
      */
-    public ArrayList<Loadable> getCarriedCars(){
-        return carInventory.getCarriedLoadables();
+    public ArrayList<ILoadable> getCarriedCars(){
+        return carInventory.getCarriedTransportables();
     }
     
 }

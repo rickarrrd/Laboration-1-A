@@ -70,7 +70,7 @@ public abstract class Vehicle implements Movable {
         return isTruckSized;
     }
 
-    public boolean isReadyToBeloaded(){
+    public boolean isReadyToBeLoaded(){
         if(getCurrentSpeed()>0.01){
             return false;
         }

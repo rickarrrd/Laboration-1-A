@@ -2,18 +2,15 @@ import java.util.ArrayList;
 
 public interface IInventory {
 
-    void load(Loadable loadable);
+    void load(ILoadable loadable);
 
-    void unloadVehicle();
+    void unload(boolean firstInFirstOut);
 
     void raiseRamp();
 
     void lowerRamp();
 
-
-    void addLoadable(Loadable loadable);
-
-    ArrayList<Loadable> getCarriedLoadables();
+    ArrayList<ILoadable> getCarriedTransportables();
 
     public boolean isReadyToBeLoaded();
 
