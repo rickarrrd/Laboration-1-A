@@ -81,7 +81,7 @@ public class CarCarrierBed implements IInventory {
 
     /**
      * Loads a car onto the carrier bed
-     * @param car the car which is about to get loaded
+     * @param Loadable the car which is about to get loaded
      */
     public void load(Loadable loadable){
         if(loadable.getRegularSize()==false){
@@ -93,7 +93,7 @@ public class CarCarrierBed implements IInventory {
 
     /**
      *
-      * @param vehicle
+      * @param Loadable
      */
 
     public void addLoadable(Loadable loadable){
