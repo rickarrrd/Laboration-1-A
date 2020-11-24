@@ -71,8 +71,6 @@ public class CarInventory implements IInventory {
 
     /**
      *
-     * @param currentSpeed of the car
-     * @param isRaised whether or not the bed barrier is raised
      * @return wheter or not the bed is accessible
      */
     public boolean isReadyToBeLoaded() {
@@ -90,7 +88,7 @@ public class CarInventory implements IInventory {
 
     /**
      * Loads a car onto the carrier bed
-     * @param Loadable the car which is about to get loaded
+     * @param loadable car which is about to get loaded
      */
     public void load(ILoadable loadable){
         if(isReadyToBeLoaded()) {
@@ -101,20 +99,9 @@ public class CarInventory implements IInventory {
     }
 
     /**
-     *
-      * @param Loadable
+     * unload the inventory
+     * @param firstInFirstOut if unloading from front or back
      */
-
-
-    /*
-    public void addLoadable(Loadable loadable){
-        if(loadable instanceof Car) {
-            carriedLoadables.add((Loadable)loadable);
-            return;
-        }
-        System.out.println("Can only add cars");
-    }
-*/
     public void unload(boolean firstInFirstOut){
         int indexOfLoadable;
         if(firstInFirstOut){

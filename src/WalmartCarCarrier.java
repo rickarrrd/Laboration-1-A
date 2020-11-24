@@ -36,6 +36,9 @@ public class WalmartCarCarrier extends Car implements IHasInventory{
         return (getEnginePower()*0.01);
     }
 
+    /**
+     * Checks if the truck is moving
+     */
     public boolean isReadyToBeLoaded(){
         if(getCurrentSpeed()>0.01){
             return false;
@@ -58,7 +61,7 @@ public class WalmartCarCarrier extends Car implements IHasInventory{
 
     /**
      * Load a car unto the truck
-     * @param car the car to be loaded
+     * @param ILoadable car to be loaded
      */
     public void load(ILoadable ILoadable){
         if(ILoadable.getCarSized() && ILoadable.getTruckSized()) {
@@ -81,5 +84,15 @@ public class WalmartCarCarrier extends Car implements IHasInventory{
     public ArrayList<ILoadable> getCarriedCars(){
         return carInventory.getCarriedTransportables();
     }
-    
+
+    /**
+     * Overides the gas function with the requriment that the ramp is up
+     * @param amount Specifies amount of which to increment speed.
+     */
+    @Override
+    public void gas(double amount){
+        if(InventoryHelper.gasAvailable(carInventory.getIsRaised())){
+            super.gas(amount);
+        }
+    }
 }

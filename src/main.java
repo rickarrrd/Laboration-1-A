@@ -10,10 +10,20 @@ public class main {
 
         Ferry ferry = new Ferry();
         Volvo240 volvo240 = new Volvo240();
-        ferry.gas(0.9);
-        ferry.brake(0.1);
         ferry.lowerRamp();
         ferry.load(volvo240);
+        ferry.raiseRamp();
+        ferry.startEngine();
+        ferry.gas(0.9);
+        ferry.move();
         System.out.println(ferry.getCarriedCars());
+
+        ferry.stopEngine();
+        ferry.lowerRamp();
+
+        ferry.unload(volvo240);
+        System.out.println(volvo240.getXcord());
+        System.out.println(volvo240.getYcord());
+
     }
 }

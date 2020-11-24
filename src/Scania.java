@@ -46,9 +46,13 @@ public class Scania extends Car implements ILoadable {
      * Checks if the Vehicle can gas before doing so
      */
 
+    /**
+     * Overides the gas function with the requriment that the ramp is up
+     * @param amount Specifies amount of which to increment speed.
+     */
     @Override
     public void gas(double amount){
-        if(InventoryHelper.gasAvailable(amount)){
+        if(InventoryHelper.gasAvailable(tiltableBed.getAngle())){
             super.gas(amount);
         }
     }

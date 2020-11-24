@@ -17,6 +17,11 @@ public class InventoryHelper {
         return amount;
     }
 
+    /**
+     * load the inventory
+     * @param loadable the item which is to be loaded
+     * @return the list of the inventory
+     */
     public ArrayList<ILoadable> load(ILoadable loadable) {
 
         double distance = Math.sqrt(Math.pow(bedOwner.getXcord()- loadable.getXcord(),2)+
@@ -34,10 +39,13 @@ public class InventoryHelper {
         ArrayList<ILoadable> newCarriedILoadables = new ArrayList<ILoadable> (inventoryInNeedOfHelp.getCarriedTransportables());
         newCarriedILoadables.add(loadable);
         return newCarriedILoadables;
-        //loadable.setCurrentlyTransported();
-        //loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
     }
 
+    /**
+     * unload the inventory
+     * @param indexOfLoadable the index of the loadable to be unlaoded
+     * @return the list of the inventory
+     */
     public ArrayList<ILoadable> unload(int indexOfLoadable) {
 
         ILoadable ILoadable = inventoryInNeedOfHelp.getCarriedTransportables().get(indexOfLoadable);
@@ -47,15 +55,9 @@ public class InventoryHelper {
         }
 
 
-        //The distance between the truck and the car will be 1 unit at dropoff
-        //Is this math correct?
         double direction = bedOwner.getDirection();
         double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
         double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
-
-        System.out.println("newXcord is " + newXcord);
-        System.out.println("newYcord is " + newYcord);
-
 
         ArrayList<ILoadable> newCarriedILoadables =inventoryInNeedOfHelp.getCarriedTransportables();
         newCarriedILoadables.remove(indexOfLoadable);
@@ -63,16 +65,26 @@ public class InventoryHelper {
         return newCarriedILoadables;
     }
 
+    /**
+     * Raise the ramp of the truck
+     */
     public boolean raiseRamp(){
         return true;
     }
-
+    /**
+     * Lower the ramp of the truck
+     */
     public boolean lowerRamp() {
         return false;
     }
 
+    /**
+     * Checks if the vehicle is able to gas
+     * @param bedAngle angle of the bed
+     * @return wheter or not the vehicle can gas
+     */
     public static boolean gasAvailable(double bedAngle) {
-        if(bedAngle<0.01 && bedAngle>-0.01){
+        if(bedAngle<0.01 || bedAngle>-0.01){
             System.out.println("Gas may only be applied when bed angle is set to 0");
             return true;
         }
@@ -80,8 +92,12 @@ public class InventoryHelper {
     }
 
 
+    /**
+     * Checks if the vehicle is able to gas
+     * @param isRaised the status of the bed
+     * @return wheter or not the vehicle can gas
+     */
     public static boolean gasAvailable(boolean isRaised){
-
         if(isRaised){
             return true;
         }
