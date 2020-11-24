@@ -9,4 +9,6 @@ public interface Loadable {
     public void setCurrentlyTransported();
 
     public void setPositionDuringTransport(double xCord, double yCord);
+
+    public void dropOff();
 }

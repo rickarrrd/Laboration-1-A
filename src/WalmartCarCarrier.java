@@ -9,7 +9,7 @@ public class WalmartCarCarrier extends Car{
     /**
      * Creates the carrier bed of the truck
      */
-    private CarCarrierBed carCarrierBed;
+    private CarInventory carInventory;
 
     private boolean bedRaised = true;
 
@@ -25,7 +25,7 @@ public class WalmartCarCarrier extends Car{
                 "Truck"
         );
         this.carsMaxAmount=6;
-        this.carCarrierBed = new CarCarrierBed(this, carsMaxAmount);
+        this.carInventory = new CarInventory(this, carsMaxAmount);
     }
 
     /**
@@ -36,17 +36,24 @@ public class WalmartCarCarrier extends Car{
         return (getEnginePower()*0.01);
     }
 
+    public boolean isReadyToBeLoaded(){
+        if(getCurrentSpeed()>0.01){
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Raise the ramp of the truck
      */
     public void raiseRamp(){
-        carCarrierBed.raiseRamp();
+        carInventory.raiseRamp();
     }
     /**
      * Lower the ramp of the truck
      */
     public void lowerRamp(){
-        carCarrierBed.lowerRamp();
+        carInventory.lowerRamp();
     }
 
     /**
@@ -54,21 +61,21 @@ public class WalmartCarCarrier extends Car{
      * @param car the car to be loaded
      */
     public void load(Loadable loadable){
-        carCarrierBed.load(loadable);
+        carInventory.load(loadable);
     }
 
     /**
      * Unload a car from the truck
      */
     public void unloadCar(){
-        carCarrierBed.unloadVehicle();
+        carInventory.unloadVehicle();
     }
 
     /**
      * @return all the cars currenly being transported
      */
-    public ArrayList<Vehicle>getCarriedCars(){
-        return carCarrierBed.getCarriedVehicles();
+    public ArrayList<Loadable> getCarriedCars(){
+        return carInventory.getCarriedLoadables();
     }
     
 }

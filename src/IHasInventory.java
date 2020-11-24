@@ -8,4 +8,6 @@ public interface IHasInventory {
 
     double getDirection();
 
+    public boolean isReadyToBeLoaded();
+
 }

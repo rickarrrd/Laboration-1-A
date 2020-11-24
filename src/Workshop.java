@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Workshop implements IHasInventory {
 
-    private CarCarrierBed carCarrierBed;
+    private CarInventory carInventory;
 
     private InventoryHelper inventoryHelper;
     private int vehicleMaxAmount;
@@ -22,8 +22,8 @@ public class Workshop implements IHasInventory {
      * @param direction
      */
     public Workshop(int vehicleMaxAmount, ArrayList<Loadable> whitelistedCarModels, int xCord, int yCord, int direction){
-        this.carCarrierBed= new CarCarrierBed( this,vehicleMaxAmount);
-        this.inventoryHelper = new InventoryHelper(carCarrierBed, this);
+        this.carInventory = new CarInventory( this,vehicleMaxAmount);
+        this.inventoryHelper = new InventoryHelper(carInventory, this);
         this.vehicleMaxAmount= inventoryHelper.setVehicleMaxAmount(vehicleMaxAmount);
         this.whitelistedCarModels=whitelistedCarModels;
         this.xCord=xCord;
@@ -37,7 +37,7 @@ public class Workshop implements IHasInventory {
      */
     public void load(Loadable loadable){
         if(this.checkIfInWhitelist(whitelistedCarModels,loadable)) {
-            carCarrierBed.load(loadable);
+            carInventory.load(loadable);
         }
     }
 
@@ -56,11 +56,15 @@ public class Workshop implements IHasInventory {
         return false;
     }
 
+    public boolean isReadyToBeLoaded(){
+        return true;
+    }
+
     /**
      * Release a car from the workshop
      */
     public void unloadVehicle() {
-        carCarrierBed.unloadVehicle();
+        carInventory.unloadVehicle();
     }
 
     /**
@@ -99,8 +103,8 @@ public class Workshop implements IHasInventory {
     /**
      * @return list of all stored cars
      */
-    public ArrayList<Vehicle> getCarriedVehicles(){
-        return carCarrierBed.getCarriedVehicles();
+    public ArrayList<Loadable> getCarriedVehicles(){
+        return carInventory.getCarriedLoadables();
     }
 
     /**
@@ -108,6 +112,6 @@ public class Workshop implements IHasInventory {
      * @param vehicle the vehicle to be added
      */
     public void addVehicle(Loadable loadable){
-        carCarrierBed.addLoadable(loadable);
+        carInventory.addLoadable(loadable);
     }
 }

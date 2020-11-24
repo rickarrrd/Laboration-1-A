@@ -10,11 +10,12 @@ public interface IInventory {
 
     void lowerRamp();
 
-    boolean getBedAccessible(double currentSpeed, boolean isBedRaised);
 
     void addLoadable(Loadable loadable);
 
-    ArrayList<Vehicle> getCarriedVehicles();
+    ArrayList<Loadable> getCarriedLoadables();
+
+    public boolean isReadyToBeLoaded();
 
     int getCarsMaxAmount();
 

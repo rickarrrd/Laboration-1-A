@@ -24,41 +24,20 @@ public class InventoryHelper {
             System.out.println("The Vehicle is to far away to be loaded");
             return;
         }
-        else if(inventoryInNeedOfHelp.getCarriedVehicles().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
+        else if(inventoryInNeedOfHelp.getCarriedLoadables().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
             System.out.println("The Carrier is full, cannot add another car");
             return;
         }
-        else if(!inventoryInNeedOfHelp.getBedAccessible(bedOwner.getCurrentSpeed(), inventoryInNeedOfHelp.getIsRaised())) {
-            return;
-        }
         this.inventoryInNeedOfHelp.addLoadable(loadable);
-        loadable.setCurrentlyTransported();
-        loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
+        //loadable.setCurrentlyTransported();
+        //loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
     }
 
-    public void unloadVehicle() {
+    public void unload() {
 
-        Vehicle vehicleToBeDroppedOff = inventoryInNeedOfHelp.getCarriedVehicles().get(inventoryInNeedOfHelp.getCarriedVehicles().size()-1);
+        Loadable loadableToBeDroppedOff = inventoryInNeedOfHelp.getCarriedLoadables().get(inventoryInNeedOfHelp.getCarriedLoadables().size()-1);
 
-        if(bedOwner instanceof Movable) {
-            if (getBedAccessible(bedOwner.getCurrentSpeed(), inventoryInNeedOfHelp.getIsRaised()) == false) {
-                return;
-            }
-
-            double direction = bedOwner.getDirection();
-            double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
-            double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
-            //The distance between the truck and the car will be 1 unit at dropoff
-            //Is this math correct?
-
-            System.out.println("newXcord is " + newXcord);
-            System.out.println("newYcord is " + newYcord);
-            vehicleToBeDroppedOff.setPositionDuringTransport(newXcord, newYcord);
-            vehicleToBeDroppedOff.dropOffTransport();
-        }
-
-
-        inventoryInNeedOfHelp.getCarriedVehicles().remove(inventoryInNeedOfHelp.getCarriedVehicles().size()-1);
+        inventoryInNeedOfHelp.getCarriedLoadables().remove(inventoryInNeedOfHelp.getCarriedLoadables().size()-1);
     }
 
     public boolean raiseRamp(){
@@ -67,14 +46,6 @@ public class InventoryHelper {
 
     public boolean lowerRamp() {
         return false;
-    }
-
-    public boolean getBedAccessible(double currentSpeed, boolean isRaised) {
-        if(currentSpeed > 0.01 || isRaised == true){
-            System.out.println("The bed is currently not accessible");
-            return false;
-        }
-        return true;
     }
 
     public static boolean gasAvailable(double bedAngle) {

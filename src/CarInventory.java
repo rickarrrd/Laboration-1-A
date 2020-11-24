@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
 
-public class CarCarrierBed implements IInventory {
+public class CarInventory implements IInventory {
 
     /**
      * Creates the helper for the CarrierBed functions
      */
     private InventoryHelper inventoryHelper;
-
     private boolean isRaised;
+
     private int carsMaxAmount;
 
-    private ArrayList<Vehicle> carriedCars= new ArrayList<Vehicle>();
+    private ArrayList<Loadable> carriedLoadables= new ArrayList<Loadable>();
 
     private IHasInventory bedOwner;
 
@@ -20,9 +20,8 @@ public class CarCarrierBed implements IInventory {
      * @param bedOwner the owner of the carrierbed
      * @param carsMaxAmount the max capacity of cars
      */
-    public CarCarrierBed(IHasInventory bedOwner, int carsMaxAmount){
+    public CarInventory(IHasInventory bedOwner, int carsMaxAmount){
         inventoryHelper = new InventoryHelper(this, bedOwner);
-        this.isRaised=false;
         this.bedOwner=bedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
     }
@@ -44,8 +43,8 @@ public class CarCarrierBed implements IInventory {
     /**
      * @return the current cars on the bed
      */
-    public ArrayList<Vehicle>getCarriedVehicles(){
-        return carriedCars;
+    public ArrayList<Loadable> getCarriedLoadables(){
+        return carriedLoadables;
     }
 
     /**
@@ -75,8 +74,15 @@ public class CarCarrierBed implements IInventory {
      * @param isRaised whether or not the bed barrier is raised
      * @return wheter or not the bed is accessible
      */
-    public boolean getBedAccessible(double currentSpeed,boolean isRaised){
-        return inventoryHelper.getBedAccessible(currentSpeed, isRaised);
+    public boolean isReadyToBeLoaded() {
+        if(!bedOwner.isReadyToBeLoaded()){
+            System.out.println("The bed is currently not accessible");
+            return false;
+        }
+        if(isRaised=true){
+            return false;
+        }
+        return true;
     }
 
     /**
@@ -98,17 +104,17 @@ public class CarCarrierBed implements IInventory {
 
     public void addLoadable(Loadable loadable){
         if(loadable instanceof Car) {
-            carriedCars.add((Car)loadable);
+            carriedLoadables.add((Loadable)loadable);
             return;
         }
         System.out.println("Can only add cars");
     }
 
     public void unloadVehicle(){
-        if(!getBedAccessible(bedOwner.getCurrentSpeed(), isRaised)){
+        if(!isReadyToBeLoaded()){
             return;
         }
-        Vehicle car = carriedCars.get(carriedCars.size()-1);
+        Loadable loadable = carriedLoadables.get(carriedLoadables.size()-1);
 
         //The distance between the truck and the car will be 1 unit at dropoff
         //Is this math correct?
@@ -118,8 +124,8 @@ public class CarCarrierBed implements IInventory {
 
         System.out.println("newXcord is " + newXcord);
         System.out.println("newYcord is " + newYcord);
-        car.setPositionDuringTransport(newXcord, newYcord);
-        car.dropOffTransport();
-        carriedCars.remove(carriedCars.size()-1);
+        loadable.setPositionDuringTransport(newXcord, newYcord);
+        carriedLoadables.remove(carriedLoadables.size()-1);
+        loadable.dropOff();
     }
 }

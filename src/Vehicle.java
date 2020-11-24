@@ -1,4 +1,4 @@
-public abstract class Vehicle implements Movable, IHasInventory {
+public abstract class Vehicle implements Movable {
    
     private double enginePower; // Engine power of the car
     /**
@@ -92,6 +92,10 @@ public abstract class Vehicle implements Movable, IHasInventory {
      */
     public void setCurrentlyTransported(){
         beingTransported=true;
+    }
+
+    public void dropOff(){
+        beingTransported=false;
     }
 
     /**
