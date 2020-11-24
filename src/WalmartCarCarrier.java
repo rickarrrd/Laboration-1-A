@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class WalmartCarCarrier extends Car{
+public class WalmartCarCarrier extends Car implements IHasInventory{
 
     private int carsMaxAmount;
 
@@ -11,7 +11,6 @@ public class WalmartCarCarrier extends Car{
      */
     private CarInventory carInventory;
 
-    private boolean bedRaised = true;
 
     /**
      * Sets parameters of the truck

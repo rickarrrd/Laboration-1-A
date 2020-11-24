@@ -5,7 +5,6 @@ public abstract class Vehicle implements Movable {
      * The current speed of the car.
      */
 
-    private boolean isRegularSizedCar;
     private double currentSpeed; // The current speed of the car
     /**
      * Color of the  car.
@@ -27,7 +26,8 @@ public abstract class Vehicle implements Movable {
      * wheter or not the veichle is currently being transported.
      */
     private boolean beingTransported=false;
-
+    private boolean isCarSized;
+    private boolean isTruckSized;
     /**
      * the modelname of the vehicle
      */
@@ -37,12 +37,13 @@ public abstract class Vehicle implements Movable {
      * Sets the parameters for the Vehicle
      * @param modelName the model name of the car
      * @param enginePower the maximum power of the car, and ability to accelerate
-     * @param isRegularSizedCar wheter or not the vehicle is a regular sized cark
+     * @param isCarSized wheter or not the vehicle is a regular sized cark
      */
-    public Vehicle(String modelName, double enginePower, boolean isRegularSizedCar){
+    public Vehicle(String modelName, double enginePower, boolean isCarSized, boolean isTruckSized){
         this.modelName=modelName;
         setEnginePower(enginePower);
-        this.isRegularSizedCar=isRegularSizedCar;
+        this.isCarSized=isCarSized;
+        this.isTruckSized=isTruckSized;
     }
 
     /**
@@ -62,8 +63,18 @@ public abstract class Vehicle implements Movable {
     /**
      * @return returns wheter or not the vehicle is a regular sized car
      */
-    public boolean getRegularSize(){
-        return isRegularSizedCar;
+    public boolean getCarSized(){
+        return isCarSized;
+    }
+    public boolean getTruckSized(){
+        return isTruckSized;
+    }
+
+    public boolean isReadyToBeloaded(){
+        if(getCurrentSpeed()>0.01){
+            return false;
+        }
+        return true;
     }
 
     /**

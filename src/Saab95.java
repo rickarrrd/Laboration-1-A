@@ -13,6 +13,7 @@ public class Saab95 extends Car{
     public Saab95(){
         super(
                 true,
+            false,
             Color.red,
             125,
             2,

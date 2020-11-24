@@ -27,15 +27,15 @@
   <component name="ChangeListManager">
     <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to WalmartCarCarrier">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarCarrierBed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IHasInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IHasInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/IInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/IInventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InventoryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InventoryHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Car.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CarInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarInventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Ferry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Loadable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Loadable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Saab95.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Saab95.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Scania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scania.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vehicle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Volvo240.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Volvo240.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WalmartCarCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WalmartCarCarrier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workshop.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +47,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="JUnit4 Test Class" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>

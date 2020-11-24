@@ -13,6 +13,7 @@ public class Scania extends Car{
     public Scania(){
         super(
                 false,
+                 true,
                  Color.black,
                 400,
                 2,

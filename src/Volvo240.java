@@ -14,6 +14,7 @@ public class Volvo240 extends Car implements Loadable{
     public Volvo240() {
         super(
                 true,
+                false,
                 Color.black,
                 100,
                 4,

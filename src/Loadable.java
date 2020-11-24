@@ -4,7 +4,9 @@ public interface Loadable {
 
     public double getYcord();
 
-    public boolean getRegularSize();
+    public boolean getCarSized();
+
+    public boolean getTruckSized();
 
     public void setCurrentlyTransported();
 

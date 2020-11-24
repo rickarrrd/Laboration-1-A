@@ -90,10 +90,6 @@ public class CarInventory implements IInventory {
      * @param car the car which is about to get loaded
      */
     public void load(Loadable loadable){
-        if(loadable.getRegularSize()==false){
-            System.out.println("The truck is only able to transport regular sized cars");
-            return;
-        }
         inventoryHelper.load(loadable);
     }
 
