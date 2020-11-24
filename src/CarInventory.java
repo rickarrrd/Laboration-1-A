@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
 
-public class CarCarrierBed implements IInventory {
+public class CarInventory implements IInventory {
 
     /**
      * Creates the helper for the CarrierBed functions
      */
     private InventoryHelper inventoryHelper;
-
     private boolean isRaised;
+
     private int carsMaxAmount;
 
-    private ArrayList<Vehicle> carriedCars= new ArrayList<Vehicle>();
+    private ArrayList<ILoadable> carriedTransportables = new ArrayList<ILoadable>();
 
     private IHasInventory bedOwner;
 
@@ -20,11 +20,11 @@ public class CarCarrierBed implements IInventory {
      * @param bedOwner the owner of the carrierbed
      * @param carsMaxAmount the max capacity of cars
      */
-    public CarCarrierBed(IHasInventory bedOwner, int carsMaxAmount){
+    public CarInventory(IHasInventory bedOwner, int carsMaxAmount){
         inventoryHelper = new InventoryHelper(this, bedOwner);
-        this.isRaised=false;
         this.bedOwner=bedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
+        this.isRaised=true;
     }
 
     /**
@@ -44,8 +44,8 @@ public class CarCarrierBed implements IInventory {
     /**
      * @return the current cars on the bed
      */
-    public ArrayList<Vehicle>getCarriedVehicles(){
-        return carriedCars;
+    public ArrayList<ILoadable> getCarriedTransportables(){
+        return carriedTransportables;
     }
 
     /**
@@ -66,7 +66,7 @@ public class CarCarrierBed implements IInventory {
      * Lower the ramp of the bed
      */
     public void lowerRamp(){
-        isRaised= inventoryHelper.lowerRamp();
+        isRaised=inventoryHelper.lowerRamp();
     }
 
     /**
@@ -75,20 +75,29 @@ public class CarCarrierBed implements IInventory {
      * @param isRaised whether or not the bed barrier is raised
      * @return wheter or not the bed is accessible
      */
-    public boolean getBedAccessible(double currentSpeed,boolean isRaised){
-        return inventoryHelper.getBedAccessible(currentSpeed, isRaised);
+    public boolean isReadyToBeLoaded() {
+        if(!bedOwner.isReadyToBeLoaded()){
+            System.out.println("The bed is currently not accessible");
+            return false;
+        }
+        if(isRaised){
+            System.out.println("Bed must be lowered.");
+            System.out.println("inte nice.");
+            return false;
+        }
+        return true;
     }
 
     /**
      * Loads a car onto the carrier bed
      * @param Loadable the car which is about to get loaded
      */
-    public void load(Loadable loadable){
-        if(loadable.getRegularSize()==false){
-            System.out.println("The truck is only able to transport regular sized cars");
-            return;
+    public void load(ILoadable loadable){
+        if(isReadyToBeLoaded()) {
+            carriedTransportables=inventoryHelper.load(loadable);
+            loadable.setCurrentlyTransported();
+            loadable.setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
         }
-        inventoryHelper.load(loadable);
     }
 
     /**
@@ -96,30 +105,26 @@ public class CarCarrierBed implements IInventory {
       * @param Loadable
      */
 
+
+    /*
     public void addLoadable(Loadable loadable){
         if(loadable instanceof Car) {
-            carriedCars.add((Car)loadable);
+            carriedLoadables.add((Loadable)loadable);
             return;
         }
         System.out.println("Can only add cars");
     }
-
-    public void unloadVehicle(){
-        if(!getBedAccessible(bedOwner.getCurrentSpeed(), isRaised)){
-            return;
+*/
+    public void unload(boolean firstInFirstOut){
+        int indexOfLoadable;
+        if(firstInFirstOut){
+            indexOfLoadable=0;
+        }else{
+            indexOfLoadable= carriedTransportables.size()-1;
         }
-        Vehicle car = carriedCars.get(carriedCars.size()-1);
 
-        //The distance between the truck and the car will be 1 unit at dropoff
-        //Is this math correct?
-        double direction = bedOwner.getDirection();
-        double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
-        double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
-
-        System.out.println("newXcord is " + newXcord);
-        System.out.println("newYcord is " + newYcord);
-        car.setPositionDuringTransport(newXcord, newYcord);
-        car.dropOffTransport();
-        carriedCars.remove(carriedCars.size()-1);
+        carriedTransportables.get(indexOfLoadable).setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
+        carriedTransportables.get(indexOfLoadable).dropOff();
+        carriedTransportables =inventoryHelper.unload(indexOfLoadable);
     }
 }

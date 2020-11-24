@@ -3,7 +3,7 @@ import java.awt.*;
 /**
  * non abstract class Saab95 extends Car with added specific parameters to the car model.
  */
-public class Saab95 extends Car{
+public class Saab95 extends Car implements ILoadable {
 
     private boolean turboOn; // Determines turbo on if true, off otherwise.
 
@@ -13,6 +13,7 @@ public class Saab95 extends Car{
     public Saab95(){
         super(
                 true,
+            false,
             Color.red,
             125,
             2,

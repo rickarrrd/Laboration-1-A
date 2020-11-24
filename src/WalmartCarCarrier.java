@@ -1,17 +1,16 @@
 import java.awt.*;
 import java.util.ArrayList;
 
-public class WalmartCarCarrier extends Car{
+public class WalmartCarCarrier extends Car implements IHasInventory{
 
     private int carsMaxAmount;
-
+    private boolean firstInFirstOut= false;
 
     /**
      * Creates the carrier bed of the truck
      */
-    private CarCarrierBed carCarrierBed;
+    private CarInventory carInventory;
 
-    private boolean bedRaised = true;
 
     /**
      * Sets parameters of the truck
@@ -19,13 +18,14 @@ public class WalmartCarCarrier extends Car{
     public WalmartCarCarrier(){
         super(
                 false,
+                 true,
                  Color.white,
                 600,
                 2,
                 "Truck"
         );
         this.carsMaxAmount=6;
-        this.carCarrierBed = new CarCarrierBed(this, carsMaxAmount);
+        this.carInventory = new CarInventory(this, carsMaxAmount);
     }
 
     /**
@@ -36,39 +36,50 @@ public class WalmartCarCarrier extends Car{
         return (getEnginePower()*0.01);
     }
 
+    public boolean isReadyToBeLoaded(){
+        if(getCurrentSpeed()>0.01){
+            return false;
+        }
+        return true;
+    }
+
     /**
      * Raise the ramp of the truck
      */
     public void raiseRamp(){
-        carCarrierBed.raiseRamp();
+        carInventory.raiseRamp();
     }
     /**
      * Lower the ramp of the truck
      */
     public void lowerRamp(){
-        carCarrierBed.lowerRamp();
+        carInventory.lowerRamp();
     }
 
     /**
      * Load a car unto the truck
      * @param car the car to be loaded
      */
-    public void load(Loadable loadable){
-        carCarrierBed.load(loadable);
+    public void load(ILoadable ILoadable){
+        if(ILoadable.getCarSized() && ILoadable.getTruckSized()) {
+            carInventory.load(ILoadable);
+        }else{
+            System.out.println("Must be car sized.");
+        }
     }
 
     /**
      * Unload a car from the truck
      */
     public void unloadCar(){
-        carCarrierBed.unloadVehicle();
+        carInventory.unload(firstInFirstOut);
     }
 
     /**
      * @return all the cars currenly being transported
      */
-    public ArrayList<Vehicle>getCarriedCars(){
-        return carCarrierBed.getCarriedVehicles();
+    public ArrayList<ILoadable> getCarriedCars(){
+        return carInventory.getCarriedTransportables();
     }
     
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class InventoryHelper {
 
     private IInventory inventoryInNeedOfHelp;
@@ -15,50 +17,50 @@ public class InventoryHelper {
         return amount;
     }
 
-    public void load(Loadable loadable) {
+    public ArrayList<ILoadable> load(ILoadable loadable) {
 
-        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()-loadable.getXcord(),2)+
-                Math.pow(bedOwner.getYcord()-loadable.getYcord(),2));
+        double distance = Math.sqrt(Math.pow(bedOwner.getXcord()- loadable.getXcord(),2)+
+                Math.pow(bedOwner.getYcord()- loadable.getYcord(),2));
 
         if(distance>1){
             System.out.println("The Vehicle is to far away to be loaded");
-            return;
+            return inventoryInNeedOfHelp.getCarriedTransportables();
         }
-        else if(inventoryInNeedOfHelp.getCarriedVehicles().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
+        else if(inventoryInNeedOfHelp.getCarriedTransportables().size()>= inventoryInNeedOfHelp.getCarsMaxAmount()) {
             System.out.println("The Carrier is full, cannot add another car");
-            return;
+            return inventoryInNeedOfHelp.getCarriedTransportables();
         }
-        else if(!inventoryInNeedOfHelp.getBedAccessible(bedOwner.getCurrentSpeed(), inventoryInNeedOfHelp.getIsRaised())) {
-            return;
-        }
-        this.inventoryInNeedOfHelp.addLoadable(loadable);
+
+        ArrayList<ILoadable> newCarriedILoadables = new ArrayList<ILoadable> (inventoryInNeedOfHelp.getCarriedTransportables());
+        newCarriedILoadables.add(loadable);
+        return newCarriedILoadables;
         //loadable.setCurrentlyTransported();
-        //loadable.setPositionDuringTransport(loadable.getXcord(), loadable.getYcord());
+        //loadable.setPositionDuringTransport(bedOwner.getXcord(), bedOwner.getYcord());
     }
 
-    public void unloadVehicle() {
+    public ArrayList<ILoadable> unload(int indexOfLoadable) {
 
-        Vehicle vehicleToBeDroppedOff = inventoryInNeedOfHelp.getCarriedVehicles().get(inventoryInNeedOfHelp.getCarriedVehicles().size()-1);
+        ILoadable ILoadable = inventoryInNeedOfHelp.getCarriedTransportables().get(indexOfLoadable);
 
-        if(bedOwner instanceof Movable) {
-            if (getBedAccessible(bedOwner.getCurrentSpeed(), inventoryInNeedOfHelp.getIsRaised()) == false) {
-                return;
-            }
-
-            double direction = bedOwner.getDirection();
-            double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
-            double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
-            //The distance between the truck and the car will be 1 unit at dropoff
-            //Is this math correct?
-
-            System.out.println("newXcord is " + newXcord);
-            System.out.println("newYcord is " + newYcord);
-            vehicleToBeDroppedOff.setPositionDuringTransport(newXcord, newYcord);
-            vehicleToBeDroppedOff.dropOffTransport();
+        if(!inventoryInNeedOfHelp.isReadyToBeLoaded()){
+            return inventoryInNeedOfHelp.getCarriedTransportables();
         }
 
 
-        inventoryInNeedOfHelp.getCarriedVehicles().remove(inventoryInNeedOfHelp.getCarriedVehicles().size()-1);
+        //The distance between the truck and the car will be 1 unit at dropoff
+        //Is this math correct?
+        double direction = bedOwner.getDirection();
+        double newYcord = bedOwner.getXcord()-1*Math.cos(Math.toRadians(direction));
+        double newXcord = bedOwner.getYcord()-1*Math.sin(Math.toRadians(direction));
+
+        System.out.println("newXcord is " + newXcord);
+        System.out.println("newYcord is " + newYcord);
+
+
+        ArrayList<ILoadable> newCarriedILoadables =inventoryInNeedOfHelp.getCarriedTransportables();
+        newCarriedILoadables.remove(indexOfLoadable);
+
+        return newCarriedILoadables;
     }
 
     public boolean raiseRamp(){
@@ -67,14 +69,6 @@ public class InventoryHelper {
 
     public boolean lowerRamp() {
         return false;
-    }
-
-    public boolean getBedAccessible(double currentSpeed, boolean isRaised) {
-        if(currentSpeed > 0.01 || isRaised == true){
-            System.out.println("The bed is currently not accessible");
-            return false;
-        }
-        return true;
     }
 
     public static boolean gasAvailable(double bedAngle) {
