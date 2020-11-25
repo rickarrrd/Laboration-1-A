@@ -224,7 +224,7 @@ public abstract class Vehicle implements Movable {
      * @param amount Specifies amount of which to decrement speed.
      */
     public void decrementSpeed(double amount){
-        double newSpeed= Math.min(getCurrentSpeed() - getSpeedFactor() * amount,0);
+        double newSpeed= Math.max(getCurrentSpeed() - getSpeedFactor() * amount,0);
         currentSpeed=newSpeed;
     }
 

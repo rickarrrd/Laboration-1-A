@@ -1,8 +1,8 @@
-/*import javafx.util.Pair;
+import javafx.util.Pair;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
-*/
+
 public class Volvo240Test {
     double delta=0.01;
     double engineOffSpeed=0; //Newly created volvo currently starts with engine off speed, ie currentSpeed=0
@@ -10,7 +10,7 @@ public class Volvo240Test {
     double trimFactor = 1.25;
     double enginePower= 100;
     double incrementTestAmount=0.5;
-    /*
+
     @Test
     public void getSpeedFactor(){
         Volvo240 volvo240test = new Volvo240();
@@ -57,23 +57,23 @@ public class Volvo240Test {
         Volvo240 volvo240test = new Volvo240();
 
         volvo240test.move();
-        assertEquals(0.0,volvo240test.getPosition().getKey());
-        assertEquals(0.0,volvo240test.getPosition().getValue());
+        assertEquals(0.0,volvo240test.getXcord(),delta);
+        assertEquals(0.0,volvo240test.getYcord(),delta);
 
         volvo240test.incrementSpeed(1);
         volvo240test.move();
-        assertEquals(0.0,volvo240test.getPosition().getKey());
-        assertEquals(1.25,volvo240test.getPosition().getValue());
+        assertEquals(0.0,volvo240test.getXcord(),delta);
+        assertEquals(1.25,volvo240test.getYcord(),delta);
 
         volvo240test.turnRight();
         volvo240test.move();
-        assertEquals(1.25,volvo240test.getPosition().getKey());
-        assertEquals(1.25,volvo240test.getPosition().getValue());
+        assertEquals(1.25,volvo240test.getXcord(),delta);
+        assertEquals(1.25,volvo240test.getYcord(),delta);
 
         volvo240test.turnLeft();
         volvo240test.move();
-        assertEquals(1.25,volvo240test.getPosition().getKey());
-        assertEquals(2.5,volvo240test.getPosition().getValue());
+        assertEquals(1.25,volvo240test.getXcord(),delta);
+        assertEquals(2.5,volvo240test.getYcord(),delta);
     }
 
     @Test
@@ -103,5 +103,5 @@ public class Volvo240Test {
 
         volvo240test.brake(1.5);
         assertEquals(0,volvo240test.getCurrentSpeed(),delta);
-    }*/
+    }
 }
