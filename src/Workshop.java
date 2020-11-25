@@ -3,16 +3,12 @@ import java.util.ArrayList;
 public class Workshop<C extends ILoadable> implements IHasInventory {
 
     private CarInventory carInventory;
-
     private InventoryHelper inventoryHelper;
     private int vehicleMaxAmount;
     //private ArrayList<Vehicle> carriedVehicles;
     private double xCord;
     private double yCord;
     private int direction;
-    private boolean firstInFirstOut=false;
-    private C allowedType;
-
 
     /**
      * Sets the parameters of the Workshop
@@ -21,7 +17,7 @@ public class Workshop<C extends ILoadable> implements IHasInventory {
      * @param yCord The y coordinate of the workshop
      * @param direction
      */
-    public Workshop(int vehicleMaxAmount, C allowedType, int xCord, int yCord, int direction){
+    public Workshop(int vehicleMaxAmount, double xCord, double yCord, int direction){
         this.carInventory = new CarInventory( this,vehicleMaxAmount);
         carInventory.lowerRamp();
         this.inventoryHelper = new InventoryHelper(carInventory, this);
@@ -29,17 +25,18 @@ public class Workshop<C extends ILoadable> implements IHasInventory {
         this.xCord=xCord;
         this.yCord=yCord;
         this.direction=direction;
-        this.allowedType=allowedType;
-
     }
 
     /**
      * Load a car into the workshop
      * @param vehicle the car to be loaded
      */
-    public void load(C loadable){
-        if(carInventory.getCarriedTransportables().size()<vehicleMaxAmount) {
-            carInventory.load(loadable);
+    public void load(C loadable) {
+        System.out.println(loadable.getClass());
+        if (carInventory.getCarriedTransportables().size() < vehicleMaxAmount) {
+            carInventory.load((ILoadable)loadable);
+        } else {
+            System.out.println("Får inte plats.");
         }
     }
 
@@ -65,8 +62,8 @@ public class Workshop<C extends ILoadable> implements IHasInventory {
     /**
      * Release a car from the workshop
      */
-    public void unloadVehicle() {
-        carInventory.unload(firstInFirstOut);
+    public void unloadVehicle(int indexOfVehicleToBeUnloaded) {
+        carInventory.unload(indexOfVehicleToBeUnloaded);
     }
 
     /**

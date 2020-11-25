@@ -11,7 +11,7 @@ public class CarInventory implements IInventory {
 
     private int carsMaxAmount;
 
-    private ArrayList<ILoadable> carriedTransportables = new ArrayList<ILoadable>();
+    private ArrayList<ILoadable> carriedTransportables= new ArrayList<ILoadable>();
 
     private IHasInventory bedOwner;
 
@@ -113,5 +113,13 @@ public class CarInventory implements IInventory {
         carriedTransportables.get(indexOfLoadable).setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
         carriedTransportables.get(indexOfLoadable).dropOff();
         carriedTransportables =inventoryHelper.unload(indexOfLoadable);
+    }
+
+    public void unload(int indexOfCarToBeUnloaded){
+
+
+        carriedTransportables.get(indexOfCarToBeUnloaded).setPositionDuringTransport(bedOwner.getXcord(),bedOwner.getYcord());
+        carriedTransportables.get(indexOfCarToBeUnloaded).dropOff();
+        carriedTransportables =inventoryHelper.unload(indexOfCarToBeUnloaded);
     }
 }

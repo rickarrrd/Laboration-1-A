@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -7,24 +8,14 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-        Ferry ferry = new Ferry();
+
+        Workshop<Volvo240> workshop = new Workshop<>(10, 0,0,0 );
         Volvo240 volvo240 = new Volvo240();
+        Saab95 saab95 = new Saab95();
+        WalmartCarCarrier walmartCarCarrier=new WalmartCarCarrier();
+        workshop.load(volvo240);
 
-        ferry.lowerRamp();
-        ferry.load(volvo240);
-        ferry.raiseRamp();
+        System.out.println(workshop.getCarriedCars());
 
-        ferry.startEngine();
-        ferry.gas(0.9);
-        ferry.move();
-        System.out.println("Y coordinate of volvo " + volvo240.getYcord());
-        ferry.move();
-        System.out.println(ferry.getCarriedCars());
-
-        ferry.stopEngine();
-        ferry.lowerRamp();
-        ferry.unload(volvo240);
-
-        System.out.println("Y coordinate of volvo " + volvo240.getYcord());
     }
 }
