@@ -25,13 +25,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="rewrote some car-&gt;loadable">
-      <change afterPath="$PROJECT_DIR$/tests/FerryTest.java" afterDir="false" />
+    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="changed alot of fuucking shit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CarInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CarInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Ferry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/InventoryHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/InventoryHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Scania.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Scania.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/WalmartCarCarrier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WalmartCarCarrier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
     </list>
@@ -213,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606252884925</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="changed alot of fuucking shit">
+      <created>1606256659194</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1606256659194</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,7 +250,8 @@
     <MESSAGE value="added comments to Vehicle och tog bort &quot;setBeingTransported&quot;" />
     <MESSAGE value="added comments to WalmartCarCarrier" />
     <MESSAGE value="rewrote some car-&gt;loadable" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrote some car-&gt;loadable" />
+    <MESSAGE value="changed alot of fuucking shit" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed alot of fuucking shit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="1" width="816" height="727" key="#Intentions" timestamp="1605087238893">
@@ -273,6 +277,10 @@
     </state>
     <state x="449" y="173" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1605694677584" />
     <state x="505" y="198" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.834@0.0.1536.834" timestamp="1605710551542" />
+    <state x="574" y="124" key="#com.intellij.ide.util.MemberChooser" timestamp="1606290105627">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="574" y="124" key="#com.intellij.ide.util.MemberChooser/0.0.1536.834@0.0.1536.834" timestamp="1606290105627" />
     <state x="498" y="207" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605710949317">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -298,29 +306,29 @@
     </state>
     <state x="462" y="121" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1605694815745" />
     <state x="519" y="139" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1605711392323" />
-    <state width="1493" height="202" key="GridCell.Tab.0.bottom" timestamp="1606255591358">
+    <state width="1493" height="286" key="GridCell.Tab.0.bottom" timestamp="1606290392513">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="202" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606255591358" />
+    <state width="1493" height="286" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1606290392513" />
     <state width="1877" height="56" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606223162663" />
-    <state width="1493" height="202" key="GridCell.Tab.0.center" timestamp="1606255591357">
+    <state width="1493" height="286" key="GridCell.Tab.0.center" timestamp="1606290392512">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="202" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606255591357" />
+    <state width="1493" height="286" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1606290392512" />
     <state width="1877" height="56" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606223162663" />
-    <state width="1493" height="202" key="GridCell.Tab.0.left" timestamp="1606255591357">
+    <state width="1493" height="286" key="GridCell.Tab.0.left" timestamp="1606290392512">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1605550305459" />
-    <state width="1493" height="202" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606255591357" />
+    <state width="1493" height="286" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1606290392512" />
     <state width="1877" height="56" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606223162663" />
-    <state width="1493" height="202" key="GridCell.Tab.0.right" timestamp="1606255591358">
+    <state width="1493" height="286" key="GridCell.Tab.0.right" timestamp="1606290392513">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1322" height="72" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1605550305460" />
-    <state width="1493" height="202" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606255591358" />
+    <state width="1493" height="286" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1606290392513" />
     <state width="1877" height="56" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606223162663" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1605738296128">
       <screen x="0" y="0" width="1536" height="834" />
@@ -348,10 +356,10 @@
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1605256264988" />
     <state x="183" y="0" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1605711149387" />
     <state x="229" y="0" key="SettingsEditor/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606166306867" />
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606164397757">
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2" timestamp="1606256667510">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606164397756" />
+    <state x="361" y="150" key="Vcs.Push.Dialog.v2/0.0.1536.834@0.0.1536.834" timestamp="1606256667510" />
     <state x="499" y="144" key="chooseDestDirectoryDialog" timestamp="1605628540300">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

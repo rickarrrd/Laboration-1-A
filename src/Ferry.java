@@ -82,4 +82,13 @@ public class Ferry extends Vehicle implements IHasInventory{
             super.gas(amount);
         }
     }
+
+    @Override
+    public void move() {
+        super.move();
+
+        for(ILoadable loadable : carInventory.getCarriedTransportables()) {
+            loadable.setPositionDuringTransport(getXcord(),getYcord());
+        }
+    }
 }

@@ -16,6 +16,9 @@ public class main {
         ferry.startEngine();
         ferry.gas(0.9);
         ferry.move();
+        ferry.move();
+        ferry.move();
+        ferry.move();
         System.out.println(ferry.getCarriedCars());
 
         ferry.stopEngine();

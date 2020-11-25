@@ -95,4 +95,12 @@ public class WalmartCarCarrier extends Car implements IHasInventory{
             super.gas(amount);
         }
     }
+    @Override
+    public void move() {
+        super.move();
+
+        for(ILoadable loadable : carInventory.getCarriedTransportables()) {
+            loadable.setPositionDuringTransport(getXcord(),getYcord());
+        }
+    }
 }
