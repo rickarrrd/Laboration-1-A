@@ -83,6 +83,9 @@ public class Ferry extends Vehicle implements IHasInventory{
         }
     }
 
+    /**
+     * Overides the move to update the position of the cars
+     */
     @Override
     public void move() {
         super.move();

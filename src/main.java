@@ -7,26 +7,24 @@ public class main {
      * @param args
      */
     public static void main(String[] args) {
-
         Ferry ferry = new Ferry();
         Volvo240 volvo240 = new Volvo240();
+
         ferry.lowerRamp();
         ferry.load(volvo240);
         ferry.raiseRamp();
+
         ferry.startEngine();
         ferry.gas(0.9);
         ferry.move();
-        ferry.move();
-        ferry.move();
+        System.out.println("Y coordinate of volvo " + volvo240.getYcord());
         ferry.move();
         System.out.println(ferry.getCarriedCars());
 
         ferry.stopEngine();
         ferry.lowerRamp();
-
         ferry.unload(volvo240);
-        System.out.println(volvo240.getXcord());
-        System.out.println(volvo240.getYcord());
 
+        System.out.println("Y coordinate of volvo " + volvo240.getYcord());
     }
 }
