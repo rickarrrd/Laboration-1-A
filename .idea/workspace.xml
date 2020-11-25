@@ -26,9 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to WalmartCarCarrier">
-      <change afterPath="$PROJECT_DIR$/src/ISimpleInventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SimpleInventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SimpleInventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SimpleInventory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -384,11 +383,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="379" y="85" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1536.834@0.0.1536.834" timestamp="1605726269947" />
-    <state x="733" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606308066158">
+    <state x="733" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606310786600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="586" y="331" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.834@0.0.1536.834" timestamp="1606162611992" />
-    <state x="733" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606308066158" />
+    <state x="733" y="413" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606310786600" />
     <state x="454" y="106" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1605530467746">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

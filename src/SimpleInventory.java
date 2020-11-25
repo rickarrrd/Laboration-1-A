@@ -20,7 +20,7 @@ public class SimpleInventory implements ISimpleInventory {
      * @param carsMaxAmount the max capacity of cars
      */
     public SimpleInventory(IHasInventory bedOwner, int carsMaxAmount){
-        inventoryHelper = new InventoryHelper(this, bedOwner);
+        inventoryHelper = new InventoryHelper(this, bedOwner); //Doesn't work because Inventory Helper expects IInventory. Would be replaced by ISimpleInventory in fixed version.
         this.bedOwner=bedOwner;
         this.setCarsMaxAmount(carsMaxAmount);
     }
