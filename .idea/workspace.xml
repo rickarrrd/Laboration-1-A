@@ -25,9 +25,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="update position during move">
-      <change beforePath="$PROJECT_DIR$/src/Ferry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Ferry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.java" afterDir="false" />
+    <list default="true" id="5538e394-5df1-47c9-9827-0f8605c4aee1" name="Default Changelist" comment="added comments to WalmartCarCarrier">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Laboration-1-A.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Laboration-1-A.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Workshop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workshop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/FerryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/FerryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Saab95Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Saab95Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Volvo240Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Volvo240Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,10 +374,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="499" y="144" key="chooseDestDirectoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1605628540300" />
-    <state x="363" y="298" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605018054512">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="510" y="420" width="591" height="223" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1606299894568">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="363" y="298" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1605018054512" />
+    <state x="510" y="420" width="591" height="223" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040/1920.0.2560.1400@0.0.1920.1040" timestamp="1606299894568" />
     <state x="379" y="85" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1605726269947">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

@@ -1,44 +1,44 @@
 import java.util.ArrayList;
 
-public class Workshop implements IHasInventory {
+public class Workshop<C extends ILoadable> implements IHasInventory {
 
     private CarInventory carInventory;
 
     private InventoryHelper inventoryHelper;
     private int vehicleMaxAmount;
-    private ArrayList<ILoadable> whitelistedCarModels;
     //private ArrayList<Vehicle> carriedVehicles;
     private double xCord;
     private double yCord;
     private int direction;
     private boolean firstInFirstOut=false;
+    private C allowedType;
 
 
     /**
      * Sets the parameters of the Workshop
      * @param vehicleMaxAmount max capacity of cars
-     * @param whitelistedCarModels which car models are allowed
      * @param xCord The x coordinate of the workshop
      * @param yCord The y coordinate of the workshop
      * @param direction
      */
-    public Workshop(int vehicleMaxAmount, ArrayList<ILoadable> whitelistedCarModels, int xCord, int yCord, int direction){
+    public Workshop(int vehicleMaxAmount, C allowedType, int xCord, int yCord, int direction){
         this.carInventory = new CarInventory( this,vehicleMaxAmount);
         carInventory.lowerRamp();
         this.inventoryHelper = new InventoryHelper(carInventory, this);
         this.vehicleMaxAmount= inventoryHelper.setVehicleMaxAmount(vehicleMaxAmount);
-        this.whitelistedCarModels=whitelistedCarModels;
         this.xCord=xCord;
         this.yCord=yCord;
         this.direction=direction;
+        this.allowedType=allowedType;
+
     }
 
     /**
      * Load a car into the workshop
      * @param vehicle the car to be loaded
      */
-    public void load(ILoadable loadable){
-        if(this.checkIfInWhitelist(whitelistedCarModels, loadable)) {
+    public void load(C loadable){
+        if(carInventory.getCarriedTransportables().size()<vehicleMaxAmount) {
             carInventory.load(loadable);
         }
     }
